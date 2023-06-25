@@ -6,11 +6,16 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "linters": "eslint \"**/*.{js,jsx}\" & stylelint \"**/*.{css,scss}\"",
+    "eslint": "eslint \"**/*.{js,jsx}\" --fix",
+    "style": "stylelint \"**/*.{css,scss}\" --fix"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.1.1",
     "react-router-dom": "^6.9.0"
   },
   "devDependencies": {
