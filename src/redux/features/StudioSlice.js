@@ -14,11 +14,61 @@ const fetchStudios = createAsyncthunk('studios/fetchStudios', async () => {
   return response.data;
 });
 
-const studiosSlice = createSlice({
-  name: 'studios',
+// create a new studio
+
+const createStudio = createAsyncthunk(
+  'studio/createStudio',
+  async ({
+    name,
+    description,
+    price,
+    duration,
+    location,
+    workingHours,
+    imageUrl,
+    rating,
+  }) => {
+    const response = await axios.post('http://localhost:3000/api/v1/studios', {
+      name,
+      description,
+      price,
+      duration,
+      location,
+      workingHours,
+      imageUrl,
+      rating,
+    });
+    return response.data;
+  },
+);
+
+// delete an existing studio
+
+const deleteStudio = createAsyncthunk('studio/deleteStudio', async ({ studioId }) => {
+  const response = await axios.delete(`http://localhost:3000/api/v1/studios/${studioId}`);
+  return response.data;
+});
+
+// fetching studio
+
+const fetchStudio = createAsyncthunk(
+  'studio/fetchStudio',
+  async ({ studioId }) => {
+    const response = await axios.get(
+      `http://localhost:3000/api/v1/studios/${studioId}`,
+    );
+    return response.data;
+  },
+);
+
+// studio slice
+
+const studioSlice = createSlice({
+  name: 'studio',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
+    // fetch all studios
     builder.addCase(fetchStudios.pending, (state) => ({
       ...state,
       status: 'Loading',
@@ -33,21 +83,41 @@ const studiosSlice = createSlice({
       status: 'failed',
       error: action.error.message,
     }));
-  },
-});
 
-// fetching studio
+    // create a new studio
+    builder.addCase(createStudio.pending, (state) => ({
+      ...state,
+      status: 'loading',
+    }));
+    builder.addCase(createStudio.fulfilled, (state, action) => ({
+      ...state,
+      status: 'successful',
+      studios: action.payload,
+    }));
+    builder.addCase(createStudio.rejected, (state, action) => ({
+      ...state,
+      status: 'failed',
+      error: action.error.message,
+    }));
 
-const fetchStudio = createAsyncthunk('studio/fetchStudio', async (studioId) => {
-  const response = await axios.get(`http://localhost:3000/api/v1/studios/${studioId}`);
-  return response.data;
-});
+    // delete a specific studio
 
-const studioSlice = createSlice({
-  name: 'studio',
-  initialState,
-  reducers: {},
-  extraReducers: (builder) => {
+    builder.addCase(deleteStudio.pending, (state) => ({
+      ...state,
+      status: 'loading',
+    }));
+    builder.addCase(deleteStudio.fulfilled, (state, action) => ({
+      ...state,
+      studios: state.studios.filter((studio) => studio.id !== action.payload.id),
+      status: 'successful',
+    }));
+    builder.addCase(deleteStudio.rejected, (state, action) => ({
+      ...state,
+      status: 'failed',
+      error: action.error.message,
+    }));
+
+    // fetch a single studio
     builder.addCase(fetchStudio.pending, (state) => ({
       ...state,
       status: 'loading',
@@ -63,8 +133,6 @@ const studioSlice = createSlice({
       error: action.error.message,
     }));
   },
-
 });
 
-export const studiosSliceReducer = studiosSlice.reducer;
-export const studioSliceReducer = studioSlice.reducer;
+export default studioSlice.reducer;
