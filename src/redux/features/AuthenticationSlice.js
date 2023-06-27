@@ -10,7 +10,7 @@ import {
 const baseUrl = 'http://localhost:3000/users';
 const initialState = {
   token: getLocalStorage('token') || null,
-  user: getLocalStorage('token') || null,
+  user: getLocalStorage('user') || null,
   tempUser: {
     username: '',
     email: '',
