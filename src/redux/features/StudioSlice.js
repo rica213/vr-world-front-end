@@ -9,9 +9,13 @@ const initialState = {
 
 // fetching studios
 
-const fetchStudios = createAsyncthunk('studios/fetchStudios', async () => {
-  const response = await axios.get('http://localhost:3000/api/v1/studios');
-  return response.data;
+const fetchStudios = createAsyncthunk('studios/fetchStudios', async (_, thunkAPI) => {
+  try {
+    const response = await axios.get('http://localhost:3000/api/v1/studios');
+    return response.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue({ error: error.message });
+  }
 });
 
 // create a new studio
@@ -27,37 +31,52 @@ const createStudio = createAsyncthunk(
     workingHours,
     imageUrl,
     rating,
-  }) => {
-    const response = await axios.post('http://localhost:3000/api/v1/studios', {
-      name,
-      description,
-      price,
-      duration,
-      location,
-      workingHours,
-      imageUrl,
-      rating,
-    });
-    return response.data;
+  }, thunkAPI) => {
+    try {
+      const response = await axios.post(
+        'http://localhost:3000/api/v1/studios',
+        {
+          name,
+          description,
+          price,
+          duration,
+          location,
+          workingHours,
+          imageUrl,
+          rating,
+        },
+      );
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue({ error: error.message });
+    }
   },
 );
 
 // delete an existing studio
 
-const deleteStudio = createAsyncthunk('studio/deleteStudio', async ({ studioId }) => {
-  const response = await axios.delete(`http://localhost:3000/api/v1/studios/${studioId}`);
-  return response.data;
+const deleteStudio = createAsyncthunk('studio/deleteStudio', async ({ studioId }, thunkAPI) => {
+  try {
+    const response = await axios.delete(`http://localhost:3000/api/v1/studios/${studioId}`);
+    return response.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue({ error: error.message });
+  }
 });
 
 // fetching studio
 
 const fetchStudio = createAsyncthunk(
   'studio/fetchStudio',
-  async ({ studioId }) => {
-    const response = await axios.get(
-      `http://localhost:3000/api/v1/studios/${studioId}`,
-    );
-    return response.data;
+  async ({ studioId }, thunkAPI) => {
+    try {
+      const response = await axios.get(
+        `http://localhost:3000/api/v1/studios/${studioId}`,
+      );
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue({ error: error.message });
+    }
   },
 );
 
