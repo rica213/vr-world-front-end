@@ -10,6 +10,7 @@ const store = configureStore(
       reservations: reservationReducer,
       studios: studioReducer,
     },
- );
+  },
+);
 
 export default store;
