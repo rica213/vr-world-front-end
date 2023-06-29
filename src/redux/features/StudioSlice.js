@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { createAsyncthunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   studios: [],
@@ -9,7 +9,7 @@ const initialState = {
 
 // fetching studios
 
-const fetchStudios = createAsyncthunk('studios/fetchStudios', async (_, thunkAPI) => {
+const fetchStudios = createAsyncThunk('studios/fetchStudios', async (_, thunkAPI) => {
   try {
     const response = await axios.get('http://localhost:3000/api/v1/studios');
     return response.data;
@@ -20,7 +20,7 @@ const fetchStudios = createAsyncthunk('studios/fetchStudios', async (_, thunkAPI
 
 // create a new studio
 
-const createStudio = createAsyncthunk(
+const createStudio = createAsyncThunk(
   'studio/createStudio',
   async ({
     name,
@@ -55,7 +55,7 @@ const createStudio = createAsyncthunk(
 
 // delete an existing studio
 
-const deleteStudio = createAsyncthunk('studio/deleteStudio', async ({ studioId }, thunkAPI) => {
+const deleteStudio = createAsyncThunk('studio/deleteStudio', async ({ studioId }, thunkAPI) => {
   try {
     const response = await axios.delete(`http://localhost:3000/api/v1/studios/${studioId}`);
     return response.data;
@@ -66,7 +66,7 @@ const deleteStudio = createAsyncthunk('studio/deleteStudio', async ({ studioId }
 
 // fetching studio
 
-const fetchStudio = createAsyncthunk(
+const fetchStudio = createAsyncThunk(
   'studio/fetchStudio',
   async ({ studioId }, thunkAPI) => {
     try {
