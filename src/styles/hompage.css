@@ -3,8 +3,8 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  margin: 0rem;
-  padding: 0rem;
+  margin: 0;
+  padding: 0;
   min-width: 100%;
 }
 
@@ -33,15 +33,16 @@
   font-size: 1rem;
   padding: 1rem;
 }
+
 .next {
-  right: 0rem;
+  right: 0;
   border-top-left-radius: 35%;
   border-bottom-left-radius: 35%;
   background-color: rgba(3, 172, 26, 0.404);
 }
 
 .prev {
-  left: 0rem;
+  left: 0;
   border-top-right-radius: 35%;
   border-bottom-right-radius: 35%;
 }
@@ -51,7 +52,7 @@
   display: grid;
   grid-template-columns: 1fr;
   background: white;
-  margin: 0rem;
+  margin: 0;
   width: 100%;
   border: none;
 }
@@ -95,6 +96,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .studio-card-footer > a {
   text-decoration: none;
   color: grey;
