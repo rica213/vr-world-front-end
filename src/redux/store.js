@@ -11,6 +11,6 @@ const store = configureStore({
     nav: navReducer,
     studios: studioReducer,
   },
-);
+});
 
 export default store;
