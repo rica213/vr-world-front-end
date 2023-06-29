@@ -8,7 +8,7 @@ function App() {
   return (
     <Routes>
       <Route exact path="/" element={<Landingpage />} />
-      <Route exact path="/home" element={<Homepage />} />
+      <Route exact path="home" element={<Homepage />} />
       <Route path="*" element={<NoMatch />} />
     </Routes>
   );
