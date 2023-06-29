@@ -1,11 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   isOpen: false,
 };
 
 const navSlice = createSlice({
-  name: "navbar",
+  name: 'navbar',
   initialState,
   reducers: {
     toggleNav: (state) => ({ ...state, isOpen: !state.isOpen }),

@@ -1,25 +1,25 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import "../styles/Navigation.css";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import '../styles/Navigation.css';
 
 const Navigation = () => {
   const isAuthenticated = useSelector((state) => state.auth.token !== null);
   const isAdmin = useSelector(
-    (state) => state.auth.user !== null && state.auth.user.admin === true
+    (state) => state.auth.user !== null && state.auth.user.admin === true,
   );
   const isOpen = useSelector((state) => state.nav.isOpen);
 
   const navStyle = {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    alignItems: "center",
-    width: "40vw",
-    height: "100vh",
-    transform: isOpen ? "none" : "translateX(-210px)",
-    backgroundColor: "rgb(62, 62, 62)",
-    transition: "all 1s",
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '40vw',
+    height: '100vh',
+    transform: isOpen ? 'none' : 'translateX(-210px)',
+    backgroundColor: 'rgb(62, 62, 62)',
+    transition: 'all 1s',
   };
 
   return (
