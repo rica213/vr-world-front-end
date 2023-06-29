@@ -18,6 +18,7 @@ const initialState = {
   },
   isLoading: false,
   errors: null,
+  formAuth: 'login',
 };
 
 export const logInUser = createAsyncThunk(
@@ -72,6 +73,10 @@ const authSlice = createSlice({
       const tempUser = { ...state.tempUser, [name]: value };
       return { ...state, tempUser };
     },
+    toggleFormAuth: (state) => ({
+      ...state,
+      formAuth: state.formAuth === 'login' ? 'register' : 'login',
+    }),
   },
   extraReducers: (builder) => {
     builder
@@ -135,5 +140,5 @@ const authSlice = createSlice({
       }));
   },
 });
-export const { handleUpdate } = authSlice.actions;
+export const { handleUpdate, toggleFormAuth } = authSlice.actions;
 export default authSlice.reducer;
