@@ -1,12 +1,12 @@
 import { Route, Routes, useLocation } from 'react-router-dom';
+import { HiMenuAlt4 } from 'react-icons/hi';
+import { useDispatch } from 'react-redux';
 import Homepage from './pages/Homepage';
 import NoMatch from './pages/NoMatch';
 import './styles/App.css';
 import Landingpage from './pages/Landingpage';
 import Navigation from './components/Navigation';
-import { CgMenuGridO } from "react-icons/cg";
-import { useDispatch } from "react-redux";
-import { toggleNav } from "./redux/features/NavbarSlice";
+import { toggleNav } from './redux/features/NavbarSlice';
 
 function App() {
   const location = useLocation();
@@ -16,7 +16,7 @@ function App() {
   return (
     <main>
       {!hideNavigation && (
-        <CgMenuGridO
+        <HiMenuAlt4
           className="menu-icon"
           onClick={() => dispatch(toggleNav())}
         />
