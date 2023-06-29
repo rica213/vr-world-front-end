@@ -1,16 +1,22 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Homepage from './pages/Homepage';
 import NoMatch from './pages/NoMatch';
 import './styles/App.css';
 import Landingpage from './pages/Landingpage';
+import Navigation from './components/Navigation';
 
 function App() {
+  const location = useLocation();
+  const hideNavigation = location.pathname === '/';
   return (
-    <Routes>
-      <Route exact path="/" element={<Landingpage />} />
-      <Route exact path="/home" element={<Homepage />} />
-      <Route path="*" element={<NoMatch />} />
-    </Routes>
+    <main>
+      {!hideNavigation && <Navigation />}
+      <Routes>
+        <Route exact path="/" element={<Landingpage />} />
+        <Route exact path="/home" element={<Homepage />} />
+        <Route path="*" element={<NoMatch />} />
+      </Routes>
+    </main>
   );
 }
 
