@@ -63,7 +63,7 @@ const Navigation = () => {
           )}
           {isAuthenticated && (
             <li>
-              <h5 className="username"><button type="button">Username</button></h5>
+              <h5 className="username">Username</h5>
               <Link to="/logout" className="auth-link"><button type="button">Log Out</button></Link>
             </li>
           )}

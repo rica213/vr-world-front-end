@@ -69,6 +69,11 @@
   left: 3%;
 }
 
+.username {
+  font-size: 1.7vh;
+  margin-bottom: 1vh;
+}
+
 @media screen and (min-width: 768px) {
   nav {
     width: 15vw !important;
