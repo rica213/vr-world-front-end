@@ -1,0 +1,23 @@
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 40vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (min-width: 475px) {
+  nav {
+    width: 25vw;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  nav {
+    width: 20vw;
+  }
+}

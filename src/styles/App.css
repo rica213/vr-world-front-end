@@ -2,3 +2,8 @@
   margin: 0%;
   padding: 0%;
 }
+
+main {
+  background-color: rgb(240, 240, 240);
+  margin: 2px;
+}
