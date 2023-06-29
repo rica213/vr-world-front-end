@@ -18,7 +18,7 @@ export const fetchStudios = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue({ error: error.message });
     }
-  }
+  },
 );
 
 // create a new studio
@@ -36,7 +36,7 @@ export const createStudio = createAsyncThunk(
       imageUrl,
       rating,
     },
-    thunkAPI
+    thunkAPI,
   ) => {
     try {
       const response = await axios.post(
@@ -50,13 +50,13 @@ export const createStudio = createAsyncThunk(
           workingHours,
           imageUrl,
           rating,
-        }
+        },
       );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue({ error: error.message });
     }
-  }
+  },
 );
 
 // delete an existing studio
@@ -66,13 +66,13 @@ export const deleteStudio = createAsyncThunk(
   async ({ studioId }, thunkAPI) => {
     try {
       const response = await axios.delete(
-        `http://localhost:3000/api/v1/studios/${studioId}`
+        `http://localhost:3000/api/v1/studios/${studioId}`,
       );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue({ error: error.message });
     }
-  }
+  },
 );
 
 // fetching studio
@@ -82,13 +82,13 @@ const fetchStudio = createAsyncThunk(
   async ({ studioId }, thunkAPI) => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/v1/studios/${studioId}`
+        `http://localhost:3000/api/v1/studios/${studioId}`,
       );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue({ error: error.message });
     }
-  }
+  },
 );
 
 // studio slice
@@ -139,7 +139,7 @@ const studioSlice = createSlice({
     builder.addCase(deleteStudio.fulfilled, (state, action) => ({
       ...state,
       studios: state.studios.filter(
-        (studio) => studio.id !== action.payload.id
+        (studio) => studio.id !== action.payload.id,
       ),
       status: 'successful',
     }));
