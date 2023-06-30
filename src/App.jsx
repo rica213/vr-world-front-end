@@ -12,6 +12,8 @@ import Authentication from './pages/Authentication';
 import AdminPages from './pages/AdminPages';
 import AdminOutlet from './pages/AdminOutlet';
 import RemoveStudios from './pages/RemoveStudios';
+import ProtectedPages from './pages/ProtectedPages';
+import UserOutlet from './pages/UserOutlet';
 
 function App() {
   const location = useLocation();
@@ -31,14 +33,23 @@ function App() {
         <Route exact path="/" element={<Landingpage />} />
         <Route exact path="/home" element={<Homepage />} />
         <Route exact path="/auth" element={<Authentication />} />
-        <Route exact path="/reservations/new" element={<ReservationNew />} />
         <Route
-          path="admin"
-          element={(
+          path="reservations"
+          element={
+            <ProtectedPages>
+              <UserOutlet />
+            </ProtectedPages>
+          }
+        >
+          <Route exact path="/reservations/new" element={<ReservationNew />} />
+        </Route>
+        <Route
+          path="studio"
+          element={
             <AdminPages>
               <AdminOutlet />
             </AdminPages>
-          )}
+          }
         >
           <Route index element={<RemoveStudios />} />
         </Route>
