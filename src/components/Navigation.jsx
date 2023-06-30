@@ -70,7 +70,7 @@ const Navigation = () => {
           )}
         </ul>
       </section>
- 
+
       <div className="social-box">
         <img src="/soc-icons/Social-Icons-black-horizontal.png" alt="social-bottom" className="social-bottom" />
       </div>
