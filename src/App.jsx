@@ -8,6 +8,7 @@ import Landingpage from './pages/Landingpage';
 import Navigation from './components/Navigation';
 import { toggleNav } from './redux/features/NavbarSlice';
 import Authentication from './pages/Authentication';
+import MyReservations from './pages/MyReservations';
 
 function App() {
   const location = useLocation();
@@ -27,6 +28,7 @@ function App() {
         <Route exact path="/" element={<Landingpage />} />
         <Route exact path="/home" element={<Homepage />} />
         <Route exact path="/auth" element={<Authentication />} />
+        <Route exact path="/my-reservations" element={<MyReservations />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </main>
