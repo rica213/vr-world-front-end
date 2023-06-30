@@ -35,21 +35,21 @@ function App() {
         <Route exact path="/auth" element={<Authentication />} />
         <Route
           path="reservations"
-          element={
+          element={(
             <ProtectedPages>
               <UserOutlet />
             </ProtectedPages>
-          }
+          )}
         >
           <Route exact path="/reservations/new" element={<ReservationNew />} />
         </Route>
         <Route
           path="studio"
-          element={
+          element={(
             <AdminPages>
               <AdminOutlet />
             </AdminPages>
-          }
+          )}
         >
           <Route index element={<RemoveStudios />} />
         </Route>

@@ -1,6 +1,4 @@
 import { Outlet } from 'react-router-dom';
 
-const UserOutlet = () => {
-  return <Outlet />;
-};
+const UserOutlet = () => <Outlet />;
 export default UserOutlet;
