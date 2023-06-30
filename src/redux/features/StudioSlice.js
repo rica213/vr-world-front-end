@@ -51,6 +51,11 @@ export const createStudio = createAsyncThunk(
           imageUrl,
           rating,
         },
+        {
+          headers: {
+            authorization: thunkAPI.getState().auth.token,
+          },
+        },
       );
       return response.data;
     } catch (error) {
@@ -63,11 +68,17 @@ export const createStudio = createAsyncThunk(
 
 export const deleteStudio = createAsyncThunk(
   'studio/deleteStudio',
-  async ({ studioId }, thunkAPI) => {
+  async (studioId, thunkAPI) => {
     try {
       const response = await axios.delete(
         `http://localhost:3000/api/v1/studios/${studioId}`,
+        {
+          headers: {
+            authorization: thunkAPI.getState().auth.token,
+          },
+        },
       );
+      thunkAPI.dispatch(fetchStudios());
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue({ error: error.message });
