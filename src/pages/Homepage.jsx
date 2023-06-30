@@ -9,7 +9,7 @@ const Homepage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchStudios());
-  }, []);
+  }, [dispatch]);
 
   return (
     <main className="main-container">

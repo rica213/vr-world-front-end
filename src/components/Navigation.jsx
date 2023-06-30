@@ -49,6 +49,7 @@ const Navigation = () => {
           </>
         )}
       </ul>
+
       <section className="auth-wrapper">
         <ul className="auth-box">
           {!isAuthenticated && (
@@ -69,6 +70,7 @@ const Navigation = () => {
           )}
         </ul>
       </section>
+ 
       <div className="social-box">
         <img src="/soc-icons/Social-Icons-black-horizontal.png" alt="social-bottom" className="social-bottom" />
       </div>

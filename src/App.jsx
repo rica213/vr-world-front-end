@@ -7,6 +7,7 @@ import './styles/App.css';
 import Landingpage from './pages/Landingpage';
 import Navigation from './components/Navigation';
 import { toggleNav } from './redux/features/NavbarSlice';
+import Authentication from './pages/Authentication';
 
 function App() {
   const location = useLocation();
@@ -25,6 +26,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Landingpage />} />
         <Route exact path="/home" element={<Homepage />} />
+        <Route exact path="/auth" element={<Authentication />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </main>
