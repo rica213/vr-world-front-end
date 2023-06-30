@@ -9,8 +9,8 @@ const Navigation = () => {
     (state) => state.auth.user !== null && state.auth.user.admin === true,
   );
   const username = useSelector(
-    (state) => state.auth.user !== null && state.auth.user.username
-  )
+    (state) => state.auth.user !== null && state.auth.user.username,
+  );
   const isOpen = useSelector((state) => state.nav.isOpen);
 
   const navStyle = {
