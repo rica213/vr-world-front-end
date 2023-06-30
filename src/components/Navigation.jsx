@@ -8,9 +8,13 @@ const Navigation = () => {
   const isAdmin = useSelector(
     (state) => state.auth.user !== null && state.auth.user.admin === true,
   );
+  const username = useSelector(
+    (state) => state.auth.user !== null && state.auth.user.username,
+  );
   const isOpen = useSelector((state) => state.nav.isOpen);
 
   const navStyle = {
+    zIndex: '95',
     position: 'fixed',
     left: '0',
     top: '0',
@@ -31,7 +35,7 @@ const Navigation = () => {
       </div>
       <ul className="pages-link">
         <li>
-          <Link to="/studios"><button type="button">STUDIOS</button></Link>
+          <Link to="/home"><button type="button">STUDIOS</button></Link>
         </li>
         {isAuthenticated && (
           <li>
@@ -64,7 +68,7 @@ const Navigation = () => {
           )}
           {isAuthenticated && (
             <li>
-              <h5 className="username">Username</h5>
+              <h5 className="username">{username}</h5>
               <Link to="/logout" className="auth-link"><button type="button">Log Out</button></Link>
             </li>
           )}
