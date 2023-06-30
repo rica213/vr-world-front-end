@@ -6,10 +6,10 @@ import '../styles/Navigation.css';
 const Navigation = () => {
   const isAuthenticated = useSelector((state) => state.auth.token !== null);
   const isAdmin = useSelector(
-    (state) => state.auth.user !== null && state.auth.user.admin === true,
+    (state) => state.auth.user !== null && state.auth.user.admin === true
   );
   const username = useSelector(
-    (state) => state.auth.user !== null && state.auth.user.username,
+    (state) => state.auth.user !== null && state.auth.user.username
   );
   const isOpen = useSelector((state) => state.nav.isOpen);
 
@@ -35,20 +35,28 @@ const Navigation = () => {
       </div>
       <ul className="pages-link">
         <li>
-          <Link to="/home"><button type="button">STUDIOS</button></Link>
+          <Link to="/home">
+            <button type="button">STUDIOS</button>
+          </Link>
         </li>
         {isAuthenticated && (
           <li>
-            <Link to="/reservations"><button type="button">RESERVATIONS</button></Link>
+            <Link to="/reservations/new">
+              <button type="button">RESERVATIONS</button>
+            </Link>
           </li>
         )}
         {isAdmin && (
           <>
             <li>
-              <Link to="/studio/new"><button type="button">ADD STUDIOS</button></Link>
+              <Link to="/studio/new" className="admin-links">
+                <button type="button">ADD STUDIOS</button>
+              </Link>
             </li>
             <li>
-              <Link to="/studios/delete"><button type="button">DELETE STUDIOS</button></Link>
+              <Link to="/studio" className="admin-links">
+                <button type="button">DELETE STUDIOS</button>
+              </Link>
             </li>
           </>
         )}
@@ -59,24 +67,34 @@ const Navigation = () => {
           {!isAuthenticated && (
             <>
               <li>
-                <Link to="/login" className="auth-link"><button type="button">Log In</button></Link>
+                <Link to="/login" className="auth-link">
+                  <button type="button">Log In</button>
+                </Link>
               </li>
               <li>
-                <Link to="/signup" className="auth-link"><button type="button">Sign Up</button></Link>
+                <Link to="/signup" className="auth-link">
+                  <button type="button">Sign Up</button>
+                </Link>
               </li>
             </>
           )}
           {isAuthenticated && (
             <li>
               <h5 className="username">{username}</h5>
-              <Link to="/logout" className="auth-link"><button type="button">Log Out</button></Link>
+              <Link to="/logout" className="auth-link">
+                <button type="button">Log Out</button>
+              </Link>
             </li>
           )}
         </ul>
       </section>
 
       <div className="social-box">
-        <img src="/soc-icons/Social-Icons-black-horizontal.png" alt="social-bottom" className="social-bottom" />
+        <img
+          src="/soc-icons/Social-Icons-black-horizontal.png"
+          alt="social-bottom"
+          className="social-bottom"
+        />
       </div>
     </nav>
   );
