@@ -45,7 +45,8 @@
   width: 100%;
 }
 
-.auth-link button, .down-btn {
+.auth-link button,
+.down-btn {
   border: none;
   border-bottom: #ffb400 2px solid;
   margin-bottom: 0.5vh;
