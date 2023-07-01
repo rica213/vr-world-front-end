@@ -28,6 +28,7 @@ const Studiodetails = () => {
             <p>price</p>
             <p>{studio.price}</p>
           </div>
+          <p>Enjoyment Time</p>
         </div>
       </div>
     </>
