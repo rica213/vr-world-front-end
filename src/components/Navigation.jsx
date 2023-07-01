@@ -59,17 +59,17 @@ const Navigation = () => {
           {!isAuthenticated && (
             <>
               <li>
-                <Link to="/login" className="auth-link"><button type="button">Log In</button></Link>
+                <Link to="/auth" className="auth-link"><button type="button">Log In</button></Link>
               </li>
               <li>
-                <Link to="/signup" className="auth-link"><button type="button">Sign Up</button></Link>
+                <Link to="/auth" className="auth-link"><button type="button">Sign Up</button></Link>
               </li>
             </>
           )}
           {isAuthenticated && (
             <li>
               <h5 className="username">{username}</h5>
-              <Link to="/logout" className="auth-link"><button type="button">Log Out</button></Link>
+              <button type="button" className="down-btn">Log Out</button>
             </li>
           )}
         </ul>
