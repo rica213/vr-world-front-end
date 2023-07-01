@@ -91,7 +91,7 @@ export const deleteStudio = createAsyncThunk(
 
 const fetchStudio = createAsyncThunk(
   'studio/fetchStudio',
-  async ({ studioId }, thunkAPI) => {
+  async (studioId, thunkAPI) => {
     try {
       const response = await axios.get(
         `http://localhost:3000/api/v1/studios/${studioId}`,
