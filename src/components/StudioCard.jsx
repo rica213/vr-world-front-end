@@ -3,10 +3,11 @@ import { useEffect, useState } from 'react';
 import { FaFacebook } from 'react-icons/fa';
 import { AiFillTwitterCircle } from 'react-icons/ai';
 import { CgMail } from 'react-icons/cg';
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 
 const StudioCard = ({
-  details: { name, image_url: imageUrl, description },
+  details: { name, image_url: imageUrl, description, id },
 }) => {
   const [color, setcolor] = useState('#5353538D');
   function generateRandomHexColor() {
@@ -29,7 +30,7 @@ const StudioCard = ({
   }, []);
 
   return (
-    <article className="studio-card">
+    <Link to={`studio/${id}`} className="studio-card">
       <div className="studio-card-header">
         <div className="circle-color" style={{ backgroundColor: `${color}` }}>
           <img src={imageUrl} alt={name} className="circle-img" />
@@ -51,7 +52,7 @@ const StudioCard = ({
           <CgMail />
         </a>
       </div>
-    </article>
+    </Link>
   );
 };
 StudioCard.propTypes = {
