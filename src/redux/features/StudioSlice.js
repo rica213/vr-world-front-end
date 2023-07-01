@@ -9,29 +9,35 @@ const initialState = {
 
 // fetching studios
 
-const fetchStudios = createAsyncThunk('studios/fetchStudios', async (_, thunkAPI) => {
-  try {
-    const response = await axios.get('http://localhost:3000/api/v1/studios');
-    return response.data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue({ error: error.message });
-  }
-});
+export const fetchStudios = createAsyncThunk(
+  'studios/fetchStudios',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get('http://localhost:3000/api/v1/studios');
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue({ error: error.message });
+    }
+  },
+);
 
 // create a new studio
 
-const createStudio = createAsyncThunk(
+export const createStudio = createAsyncThunk(
   'studio/createStudio',
-  async ({
-    name,
-    description,
-    price,
-    duration,
-    location,
-    workingHours,
-    imageUrl,
-    rating,
-  }, thunkAPI) => {
+  async (
+    {
+      name,
+      description,
+      price,
+      duration,
+      location,
+      workingHours,
+      imageUrl,
+      rating,
+    },
+    thunkAPI,
+  ) => {
     try {
       const response = await axios.post(
         'http://localhost:3000/api/v1/studios',
@@ -45,6 +51,11 @@ const createStudio = createAsyncThunk(
           imageUrl,
           rating,
         },
+        {
+          headers: {
+            authorization: thunkAPI.getState().auth.token,
+          },
+        },
       );
       return response.data;
     } catch (error) {
@@ -55,14 +66,25 @@ const createStudio = createAsyncThunk(
 
 // delete an existing studio
 
-const deleteStudio = createAsyncThunk('studio/deleteStudio', async ({ studioId }, thunkAPI) => {
-  try {
-    const response = await axios.delete(`http://localhost:3000/api/v1/studios/${studioId}`);
-    return response.data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue({ error: error.message });
-  }
-});
+export const deleteStudio = createAsyncThunk(
+  'studio/deleteStudio',
+  async (studioId, thunkAPI) => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:3000/api/v1/studios/${studioId}`,
+        {
+          headers: {
+            authorization: thunkAPI.getState().auth.token,
+          },
+        },
+      );
+      thunkAPI.dispatch(fetchStudios());
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue({ error: error.message });
+    }
+  },
+);
 
 // fetching studio
 
@@ -127,7 +149,9 @@ const studioSlice = createSlice({
     }));
     builder.addCase(deleteStudio.fulfilled, (state, action) => ({
       ...state,
-      studios: state.studios.filter((studio) => studio.id !== action.payload.id),
+      studios: state.studios.filter(
+        (studio) => studio.id !== action.payload.id,
+      ),
       status: 'successful',
     }));
     builder.addCase(deleteStudio.rejected, (state, action) => ({

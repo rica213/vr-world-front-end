@@ -14,7 +14,7 @@ const Landingpage = () => (
           <h1>VR WORLD</h1>
         </div>
         <div className="btn-box">
-          <Link class="home-link" to="/home">
+          <Link className="home-link" to="/home">
             <button type="button" className="landingpage-home-btn">
               <AiFillHome />
               Start Journey
@@ -24,7 +24,11 @@ const Landingpage = () => (
         </div>
       </div>
     </div>
-    <img src="/soc-icons/Social-Icons-white-vertical.png" alt="" className="soc-down" />
+    <img
+      src="/soc-icons/Social-Icons-white-vertical.png"
+      alt=""
+      className="soc-down"
+    />
   </>
 );
 

@@ -19,8 +19,7 @@ const Authentication = () => {
 
   const formAuth = useSelector((state) => state.auth.formAuth);
 
-  const handleLogIn = (e) => {
-    e.preventDefault();
+  const handleLogIn = () => {
     dispatch(
       logInUser({
         user: {
@@ -31,8 +30,7 @@ const Authentication = () => {
     );
   };
 
-  const handleRegister = (e) => {
-    e.preventDefault();
+  const handleRegister = () => {
     dispatch(
       registerUser({
         user: {
