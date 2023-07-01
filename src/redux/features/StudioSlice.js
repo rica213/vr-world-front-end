@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   studios: [],
-  studio: null,
+  studio: [],
   status: 'idle',
   error: null,
 };
