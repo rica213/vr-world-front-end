@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchReservations } from "../redux/features/ReservationSlice";
-import { fetchStudios } from "../redux/features/StudioSlice";
-import "../styles/MyReservations.css";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchReservations } from '../redux/features/ReservationSlice';
+import { fetchStudios } from '../redux/features/StudioSlice';
+import '../styles/MyReservations.css';
 
 const MyReservations = () => {
   const dispatch = useDispatch();
@@ -17,12 +17,12 @@ const MyReservations = () => {
 
   const getRandomColor = (index) => {
     const colors = [
-      "#0079FF",
-      "#00DFA2",
-      "#b9bd28",
-      "#FF0060",
-      "#98DFD6",
-      "#77D970",
+      '#0079FF',
+      '#00DFA2',
+      '#b9bd28',
+      '#FF0060',
+      '#98DFD6',
+      '#77D970',
     ];
     const randomColor = colors[index % colors.length];
     return randomColor;
@@ -34,7 +34,7 @@ const MyReservations = () => {
       <ul className="reservation-list">
         {reservations.map((reservation, index) => {
           const studio = studios.find(
-            (studio) => studio.id === reservation.studio_id
+            (studio) => studio.id === reservation.studio_id,
           );
           const reservationStyle = {
             backgroundColor: getRandomColor(index),
