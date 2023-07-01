@@ -6,10 +6,10 @@ import '../styles/Navigation.css';
 const Navigation = () => {
   const isAuthenticated = useSelector((state) => state.auth.token !== null);
   const isAdmin = useSelector(
-    (state) => state.auth.user !== null && state.auth.user.admin === true,
+    (state) => state.auth.user !== null && state.auth.user.admin === true
   );
   const username = useSelector(
-    (state) => state.auth.user !== null && state.auth.user.username,
+    (state) => state.auth.user !== null && state.auth.user.username
   );
   const isOpen = useSelector((state) => state.nav.isOpen);
 
@@ -67,12 +67,12 @@ const Navigation = () => {
           {!isAuthenticated && (
             <>
               <li>
-                <Link to="/login" className="auth-link">
+                <Link to="/auth" className="auth-link">
                   <button type="button">Log In</button>
                 </Link>
               </li>
               <li>
-                <Link to="/signup" className="auth-link">
+                <Link to="/auth" className="auth-link">
                   <button type="button">Sign Up</button>
                 </Link>
               </li>
@@ -81,9 +81,9 @@ const Navigation = () => {
           {isAuthenticated && (
             <li>
               <h5 className="username">{username}</h5>
-              <Link to="/logout" className="auth-link">
-                <button type="button">Log Out</button>
-              </Link>
+              <button type="button" className="down-btn">
+                Log Out
+              </button>
             </li>
           )}
         </ul>
