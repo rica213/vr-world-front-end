@@ -20,7 +20,7 @@ function App() {
   const dispatch = useDispatch();
 
   return (
-    <main>
+    <>
       {!hideNavigation && (
         <HiMenuAlt4
           className="menu-icon"
@@ -46,7 +46,7 @@ function App() {
         </Route>
         <Route path="*" element={<NoMatch />} />
       </Routes>
-    </main>
+    </>
   );
 }
 
