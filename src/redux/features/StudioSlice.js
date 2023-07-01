@@ -169,7 +169,7 @@ const studioSlice = createSlice({
     builder.addCase(fetchStudio.fulfilled, (state, action) => ({
       ...state,
       status: 'successful',
-      studios: action.payload,
+      studio: action.payload,
     }));
     builder.addCase(fetchStudio.rejected, (state, action) => ({
       ...state,
