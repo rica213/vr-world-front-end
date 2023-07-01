@@ -1,6 +1,17 @@
 .container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    padding-top: 12rem;
     height: 100vh;
+    flex-wrap: wrap;
+}
+
+.item {
+    width: 33.33%;
+    flex: 0 0 auto;
+}
+
+.studio-image {
+    width: 65%;
+    border-radius: 2rem;
 }

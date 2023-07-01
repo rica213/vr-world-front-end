@@ -17,9 +17,18 @@ const Studiodetails = () => {
   return (
     <>
       <div className="container">
-        <div className="item">{studio?.id}</div>
-        <div className="item">{studio?.description}</div>
-        <div className="item">{studio?.price}</div>
+        <div className="item"></div>
+        <div className="item image-contain">
+          <img src={studio?.image_url} className="studio-image"/>
+        </div>
+        <div className="item details-section">
+          <h1>{studio.name}</h1>
+          <p>{studio.description}</p>
+          <div className="studio-price">
+            <p>price</p>
+            <p>{studio.price}</p>
+          </div>
+        </div>
       </div>
     </>
   );
