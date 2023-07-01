@@ -77,6 +77,14 @@ const authSlice = createSlice({
       ...state,
       formAuth: state.formAuth === 'login' ? 'register' : 'login',
     }),
+    toRegister: (state) => ({
+      ...state,
+      formAuth: 'register',
+    }),
+    toLogin: (state) => ({
+      ...state,
+      formAuth: 'login',
+    }),
   },
   extraReducers: (builder) => {
     builder
@@ -140,5 +148,7 @@ const authSlice = createSlice({
       }));
   },
 });
-export const { handleUpdate, toggleFormAuth } = authSlice.actions;
+export const {
+  handleUpdate, toggleFormAuth, toRegister, toLogin,
+} = authSlice.actions;
 export default authSlice.reducer;

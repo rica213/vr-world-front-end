@@ -1,9 +1,16 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Navigation.css';
+import {
+  logOutUser,
+  toLogin,
+  toRegister,
+} from '../redux/features/AuthenticationSlice';
+import { toggleNav } from '../redux/features/NavbarSlice';
 
 const Navigation = () => {
+  const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.auth.token !== null);
   const isAdmin = useSelector(
     (state) => state.auth.user !== null && state.auth.user.admin === true,
@@ -12,6 +19,14 @@ const Navigation = () => {
     (state) => state.auth.user !== null && state.auth.user.username,
   );
   const isOpen = useSelector((state) => state.nav.isOpen);
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    dispatch(logOutUser());
+    navigate('/');
+  };
+  const handleHideNav = () => {
+    dispatch(toggleNav());
+  };
 
   const navStyle = {
     zIndex: '95',
@@ -35,20 +50,36 @@ const Navigation = () => {
       </div>
       <ul className="pages-link">
         <li>
-          <Link to="/home"><button type="button">STUDIOS</button></Link>
+          <Link to="/home">
+            <button type="button" onClick={() => handleHideNav()}>
+              STUDIOS
+            </button>
+          </Link>
         </li>
         {isAuthenticated && (
           <li>
-            <Link to="/reservations"><button type="button">RESERVATIONS</button></Link>
+            <Link to="/my-reservations">
+              <button type="button" onClick={() => handleHideNav()}>
+                RESERVATIONS
+              </button>
+            </Link>
           </li>
         )}
         {isAdmin && (
           <>
             <li>
-              <Link to="/studio/new"><button type="button">ADD STUDIOS</button></Link>
+              <Link to="/studio/new">
+                <button type="button" onClick={() => handleHideNav()}>
+                  ADD STUDIOS
+                </button>
+              </Link>
             </li>
             <li>
-              <Link to="/studios/delete"><button type="button">DELETE STUDIOS</button></Link>
+              <Link to="/studios/delete">
+                <button type="button" onClick={() => handleHideNav()}>
+                  DELETE STUDIOS
+                </button>
+              </Link>
             </li>
           </>
         )}
@@ -59,24 +90,57 @@ const Navigation = () => {
           {!isAuthenticated && (
             <>
               <li>
-                <Link to="/auth" className="auth-link"><button type="button">Log In</button></Link>
+                <Link to="/auth" className="auth-link">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      dispatch(toLogin());
+                      handleHideNav();
+                    }}
+                  >
+                    Log In
+                  </button>
+                </Link>
               </li>
               <li>
-                <Link to="/auth" className="auth-link"><button type="button">Sign Up</button></Link>
+                <Link to="/auth" className="auth-link">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      dispatch(toRegister());
+                      handleHideNav();
+                    }}
+                  >
+                    Sign Up
+                  </button>
+                </Link>
               </li>
             </>
           )}
           {isAuthenticated && (
             <li>
               <h5 className="username">{username}</h5>
-              <button type="button" className="down-btn">Log Out</button>
+              <button
+                type="button"
+                className="down-btn"
+                onClick={() => {
+                  handleLogout();
+                  handleHideNav();
+                }}
+              >
+                Log Out
+              </button>
             </li>
           )}
         </ul>
       </section>
 
       <div className="social-box">
-        <img src="/soc-icons/Social-Icons-black-horizontal.png" alt="social-bottom" className="social-bottom" />
+        <img
+          src="/soc-icons/Social-Icons-black-horizontal.png"
+          alt="social-bottom"
+          className="social-bottom"
+        />
       </div>
     </nav>
   );
