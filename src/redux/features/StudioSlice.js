@@ -88,7 +88,7 @@ export const deleteStudio = createAsyncThunk(
 
 // fetching studio
 
-const fetchStudio = createAsyncThunk(
+export const fetchStudio = createAsyncThunk(
   'studio/fetchStudio',
   async ({ studioId }, thunkAPI) => {
     try {
