@@ -5,6 +5,7 @@ const initialState = {
   studios: [],
   status: 'idle',
   error: null,
+  isSuccessful: false,
 };
 
 // fetching studios
@@ -26,31 +27,13 @@ export const fetchStudios = createAsyncThunk(
 export const createStudio = createAsyncThunk(
   'studio/createStudio',
   async (
-    {
-      name,
-      description,
-      price,
-      duration,
-      location,
-      workingHours,
-      imageUrl,
-      rating,
-    },
+    studioDetails,
     thunkAPI,
   ) => {
     try {
       const response = await axios.post(
         'http://localhost:3000/api/v1/studios',
-        {
-          name,
-          description,
-          price,
-          duration,
-          location,
-          workingHours,
-          imageUrl,
-          rating,
-        },
+        studioDetails,
         {
           headers: {
             authorization: thunkAPI.getState().auth.token,
@@ -129,16 +112,20 @@ const studioSlice = createSlice({
     builder.addCase(createStudio.pending, (state) => ({
       ...state,
       status: 'loading',
+      isSuccessful: false,
     }));
     builder.addCase(createStudio.fulfilled, (state, action) => ({
       ...state,
       status: 'successful',
       studios: action.payload,
+      isSuccessful: true,
     }));
     builder.addCase(createStudio.rejected, (state, action) => ({
       ...state,
       status: 'failed',
       error: action.error.message,
+      isSuccessful: false,
+
     }));
 
     // delete a specific studio
