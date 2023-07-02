@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchStudio } from "../redux/features/StudioSlice";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { AiFillStar } from "react-icons/ai";
 import "../styles/Studiodetailspage.css";
 
@@ -36,7 +36,7 @@ const Studiodetails = () => {
           <h1>{studio.name}</h1>
           <p>{studio.description}</p>
           <div className="studio-price">
-            <p>Price per session</p>
+            <p className="text-tag">Price per session</p>
             <p>${studio.price}</p>
           </div>
           <p className="text">Enjoyment Time</p>
@@ -51,9 +51,14 @@ const Studiodetails = () => {
               <MultipliedStars times={studio.rating} />
             </div>
           </div>
+
           <div>
             <div className="loader"></div>
           </div>
+
+          <Link>
+            <button>Reserve </button>
+          </Link>
         </div>
       </div>
     </>

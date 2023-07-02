@@ -51,7 +51,24 @@
     height: 100vh;
   }
 
+  .studio-image {
+    width: 95%;
+    border-radius: 2rem;
+  }
 
+  .studio-price {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(93, 205, 62);
+    width: 100%;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+  }
+
+  .text-tag {
+    
+  }
 }
 
 /* animation */
