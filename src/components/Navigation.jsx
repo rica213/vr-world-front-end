@@ -31,7 +31,7 @@ const Navigation = () => {
   return (
     <nav style={navStyle}>
       <div className="logo-box">
-        <img src="logos/app-logo.png" alt="app-logo" className="app-logo" />
+        <img src="/logos/app-logo.png" alt="app-logo" className="app-logo" />
       </div>
       <ul className="pages-link">
         <li>
