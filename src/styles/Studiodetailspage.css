@@ -41,6 +41,14 @@
   padding-top: 0.7rem;
 }
 
+.reserve-btn {
+    padding: .5rem;
+    width: 35%;
+    background-color: rgb(93, 205, 62);
+    border-radius: 2rem;
+    border: none;
+}
+
 @media (max-width: 767px), (max-width: 1023px) {
   .container {
     display: flex;
@@ -67,8 +75,18 @@
   }
 
   .text-tag {
-    
+
   }
+
+  .reserve-btn {
+    padding: .5rem;
+    width: 90%;
+    margin-top: 2rem;
+    background-color: rgb(93, 205, 62);
+    border-radius: 2rem;
+    border: none;
+}
+
 }
 
 /* animation */

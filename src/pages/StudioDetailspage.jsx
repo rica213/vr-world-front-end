@@ -56,8 +56,8 @@ const Studiodetails = () => {
             <div className="loader"></div>
           </div>
 
-          <Link>
-            <button>Reserve </button>
+          <Link to="/reservations">
+            <button className="reserve-btn">Reserve </button>
           </Link>
         </div>
       </div>
