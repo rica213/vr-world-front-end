@@ -1,9 +1,9 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchStudio } from "../redux/features/StudioSlice";
-import { Link, useParams } from "react-router-dom";
-import { AiFillStar } from "react-icons/ai";
-import "../styles/Studiodetailspage.css";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useParams } from 'react-router-dom';
+import { AiFillStar } from 'react-icons/ai';
+import { fetchStudio } from '../redux/features/StudioSlice';
+import '../styles/Studiodetailspage.css';
 
 const Studiodetails = () => {
   const studio = useSelector((state) => state.studios.studio);
@@ -23,13 +23,12 @@ const Studiodetails = () => {
     return <div>{stars}</div>;
   };
 
-  console.log(studio);
   return (
     <>
       <div className="container">
-        <div className="item"></div>
+        <div className="item" />
         <div className="item image-contain">
-          <img src={studio?.image_url} className="studio-image" />
+          <img src={studio?.image_url} className="studio-image" alt="studio icon" />
         </div>
 
         <div className="item details-section">
@@ -37,12 +36,18 @@ const Studiodetails = () => {
           <p>{studio.description}</p>
           <div className="studio-price">
             <p className="text-tag">Price</p>
-            <p>${studio.price}</p>
+            <p>
+              $
+              {studio.price}
+            </p>
           </div>
           <p className="text">Enjoyment Time</p>
           <div className="studio-price">
             <p className="text-tag">Session</p>
-            <p>{studio.duration}hrs</p>
+            <p>
+              {studio.duration}
+              hrs
+            </p>
           </div>
 
           <div className="rating">
@@ -53,16 +58,23 @@ const Studiodetails = () => {
           </div>
 
           <div>
-            <div className="loader"></div>
+            <div className="loader" />
           </div>
 
           <Link to="/reservations">
-            <button className="reserve-btn">Reserve </button>
+            <button type="button" className="reserve-btn">Reserve </button>
           </Link>
         </div>
       </div>
     </>
   );
+};
+
+Studiodetails.propTypes = {
+  details: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+     
+  }).isRequired,
 };
 
 export default Studiodetails;

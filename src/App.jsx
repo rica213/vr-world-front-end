@@ -14,7 +14,6 @@ import AdminOutlet from './pages/AdminOutlet';
 import RemoveStudios from './pages/RemoveStudios';
 import Studiodetails from './pages/StudioDetailspage';
 
-
 function App() {
   const location = useLocation();
   const hideNavigation = location.pathname === '/';

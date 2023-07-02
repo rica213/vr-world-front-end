@@ -3,11 +3,13 @@ import { useEffect, useState } from 'react';
 import { FaFacebook } from 'react-icons/fa';
 import { AiFillTwitterCircle } from 'react-icons/ai';
 import { CgMail } from 'react-icons/cg';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const StudioCard = ({
-  details: { name, image_url: imageUrl, description, id },
+  details: {
+    name, image_url: imageUrl, description, id,
+  },
 }) => {
   const [color, setcolor] = useState('#5353538D');
   function generateRandomHexColor() {
@@ -60,6 +62,7 @@ StudioCard.propTypes = {
     name: PropTypes.string.isRequired,
     image_url: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
   }).isRequired,
 };
 export default StudioCard;
