@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { AiFillStar } from 'react-icons/ai';
 import { fetchStudio } from '../redux/features/StudioSlice';
+import MultipliedStars from '../components/Multipliedstars';
 import '../styles/Studiodetailspage.css';
 
 const Studiodetails = () => {
@@ -15,20 +15,16 @@ const Studiodetails = () => {
     dispatch(fetchStudio(id));
   }, [dispatch]);
 
-  const MultipliedStars = ({ times }) => {
-    const stars = Array.from({ length: times }, (_, index) => (
-      <AiFillStar key={index} />
-    ));
-
-    return <div>{stars}</div>;
-  };
-
   return (
     <>
       <div className="container">
         <div className="item" />
         <div className="item image-contain">
-          <img src={studio?.image_url} className="studio-image" alt="studio icon" />
+          <img
+            src={studio?.image_url}
+            className="studio-image"
+            alt="studio icon"
+          />
         </div>
 
         <div className="item details-section">
@@ -62,19 +58,15 @@ const Studiodetails = () => {
           </div>
 
           <Link to="/reservations">
-            <button type="button" className="reserve-btn">Reserve </button>
+            <button type="button" className="reserve-btn">
+              Reserve
+              {' '}
+            </button>
           </Link>
         </div>
       </div>
     </>
   );
-};
-
-Studiodetails.propTypes = {
-  details: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-     
-  }).isRequired,
 };
 
 export default Studiodetails;
