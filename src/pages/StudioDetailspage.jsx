@@ -36,12 +36,12 @@ const Studiodetails = () => {
           <h1>{studio.name}</h1>
           <p>{studio.description}</p>
           <div className="studio-price">
-            <p className="text-tag">Price per session</p>
+            <p className="text-tag">Price</p>
             <p>${studio.price}</p>
           </div>
           <p className="text">Enjoyment Time</p>
           <div className="studio-price">
-            <p>Duration per session</p>
+            <p className="text-tag">Session</p>
             <p>{studio.duration}hrs</p>
           </div>
 
