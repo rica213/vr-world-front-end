@@ -1,3 +1,8 @@
+:root {
+  --clr-green: #6beb21;
+  --shadow-1:: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
 .section-container {
   min-height: 95vh;
   padding: 1rem;
@@ -59,4 +64,76 @@
   border: none;
   margin: auto;
   cursor: pointer;
+}
+/* overlay */
+.modal-overlay {
+  z-index: 999;
+  position: fixed;
+  top: 0rem;
+  left: 0rem;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.233);
+}
+
+.show-modal {
+  display: flex;
+}
+
+/* confimation */
+.confirm-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 80vh;
+  max-width: 400px;
+  background-color: white;
+  align-items: center;
+  min-height: 20vh;
+  padding: 1rem;
+}
+
+.confrim-btns-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.confirm-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  background: transparent;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  color: white;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  box-shadow: var(--shadow-1);
+  letter-spacing: .2rem;
+  font-size: 1rem;
+}
+
+.confirm {
+  background-color: red;
+}
+
+.confirm:hover {
+  color: red;
+  background-color: white;
+  outline: 2pt solid red;
+}
+
+.cancel {
+  background-color: var(--clr-green);
+}
+
+.cancel:hover {
+  color: var(--clr-green);
+  background: white;
+  outline: 2pt solid var(--clr-green);
 }
