@@ -41,11 +41,12 @@
   padding-top: 0.7rem;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 767px), (max-width: 1023px) {
   .container {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
+    justify-content: center;
+    align-items: center;
     padding-top: 12rem;
     height: 100vh;
   }
