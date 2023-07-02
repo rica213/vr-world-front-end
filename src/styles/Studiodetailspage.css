@@ -42,8 +42,8 @@
 }
 
 .reserve-btn {
-  padding: 0.5rem;
-  width: 35%;
+  padding: 0.9rem;
+  width: 30%;
   background-color: rgb(93, 205, 62);
   border-radius: 2rem;
   border: none;
@@ -81,8 +81,8 @@
   }
 
   .reserve-btn {
-    padding: 0.5rem;
-    width: 90%;
+    padding: 0.9rem;
+    width: 70%;
     margin-top: 2rem;
     background-color: rgb(93, 205, 62);
     border-radius: 2rem;
