@@ -46,7 +46,7 @@ const Studiodetails = () => {
           </div>
 
           <div className="rating">
-            <p className="text">Rating</p>
+            <p className="text ratng-text">Rating</p>
             <div className="stars">
               <MultipliedStars times={studio.rating} />
             </div>

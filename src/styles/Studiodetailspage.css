@@ -47,6 +47,7 @@
     background-color: rgb(93, 205, 62);
     border-radius: 2rem;
     border: none;
+    margin-top: 2rem;
 }
 
 @media (max-width: 767px), (max-width: 1023px) {
@@ -87,6 +88,17 @@
     border-radius: 2rem;
     border: none;
 }
+
+.rating {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.ratng-text {
+    padding: 0;
+}
+
 
 }
 
