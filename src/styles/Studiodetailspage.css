@@ -4,6 +4,7 @@
   padding-top: 12rem;
   height: 100vh;
   flex-wrap: wrap;
+  padding-top: 8rem;
 }
 
 .item {
@@ -56,7 +57,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 12rem;
+    padding-top: 0;
     height: 100vh;
   }
 
