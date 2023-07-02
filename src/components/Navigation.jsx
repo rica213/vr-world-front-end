@@ -41,7 +41,7 @@ const Navigation = () => {
         </li>
         {isAuthenticated && (
           <li>
-            <Link to="/reservations/new">
+            <Link to="/my-reservations">
               <button type="button">RESERVATIONS</button>
             </Link>
           </li>
