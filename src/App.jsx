@@ -12,6 +12,7 @@ import Authentication from './pages/Authentication';
 import AdminPages from './pages/AdminPages';
 import AdminOutlet from './pages/AdminOutlet';
 import RemoveStudios from './pages/RemoveStudios';
+import AddStudio from './pages/AddStudio';
 
 function App() {
   const location = useLocation();
@@ -32,6 +33,7 @@ function App() {
         <Route exact path="/home" element={<Homepage />} />
         <Route exact path="/auth" element={<Authentication />} />
         <Route exact path="/reservations/new" element={<ReservationNew />} />
+        <Route exact path="/studio/new" element={<AddStudio />} />
         <Route
           path="admin"
           element={(
