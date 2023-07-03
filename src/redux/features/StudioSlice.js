@@ -6,6 +6,7 @@ const initialState = {
   studio: [],
   status: 'idle',
   error: null,
+  isSuccessful: false,
 };
 
 // fetching studios
@@ -26,41 +27,21 @@ export const fetchStudios = createAsyncThunk(
 
 export const createStudio = createAsyncThunk(
   'studio/createStudio',
-  async (
-    {
-      name,
-      description,
-      price,
-      duration,
-      location,
-      workingHours,
-      imageUrl,
-      rating,
-    },
-    thunkAPI,
-  ) => {
+  async (studioDetails, thunkAPI) => {
     try {
       const response = await axios.post(
         'http://localhost:3000/api/v1/studios',
-        {
-          name,
-          description,
-          price,
-          duration,
-          location,
-          workingHours,
-          imageUrl,
-          rating,
-        },
+        studioDetails,
         {
           headers: {
             authorization: thunkAPI.getState().auth.token,
           },
         },
       );
+      thunkAPI.dispatch(fetchStudios);
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue({ error: error.message });
+      return thunkAPI.rejectWithValue({ error: error.response.data });
     }
   },
 );
@@ -130,16 +111,18 @@ const studioSlice = createSlice({
     builder.addCase(createStudio.pending, (state) => ({
       ...state,
       status: 'loading',
+      isSuccessful: false,
     }));
-    builder.addCase(createStudio.fulfilled, (state, action) => ({
+    builder.addCase(createStudio.fulfilled, (state) => ({
       ...state,
       status: 'successful',
-      studios: action.payload,
+      isSuccessful: true,
     }));
     builder.addCase(createStudio.rejected, (state, action) => ({
       ...state,
       status: 'failed',
       error: action.error.message,
+      isSuccessful: false,
     }));
 
     // delete a specific studio
@@ -148,11 +131,8 @@ const studioSlice = createSlice({
       ...state,
       status: 'loading',
     }));
-    builder.addCase(deleteStudio.fulfilled, (state, action) => ({
+    builder.addCase(deleteStudio.fulfilled, (state) => ({
       ...state,
-      studios: state.studios.filter(
-        (studio) => studio.id !== action.payload.id,
-      ),
       status: 'successful',
     }));
     builder.addCase(deleteStudio.rejected, (state, action) => ({

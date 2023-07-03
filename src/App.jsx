@@ -13,6 +13,7 @@ import MyReservations from './pages/MyReservations';
 import AdminPages from './pages/AdminPages';
 import AdminOutlet from './pages/AdminOutlet';
 import RemoveStudios from './pages/RemoveStudios';
+import AddStudio from './pages/AddStudio';
 import Studiodetails from './pages/StudioDetailspage';
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <Route exact path="/auth" element={<Authentication />} />
         <Route exact path="/my-reservations" element={<MyReservations />} />
         <Route exact path="/reservations/new" element={<ReservationNew />} />
+        <Route exact path="/studio/new" element={<AddStudio />} />
         <Route exact path="home/studio/:id" element={<Studiodetails />} />
         <Route
           path="admin"
