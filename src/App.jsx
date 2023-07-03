@@ -9,9 +9,12 @@ import ReservationNew from './pages/ReservationNew';
 import Navigation from './components/Navigation';
 import { toggleNav } from './redux/features/NavbarSlice';
 import Authentication from './pages/Authentication';
+import MyReservations from './pages/MyReservations';
 import AdminPages from './pages/AdminPages';
 import AdminOutlet from './pages/AdminOutlet';
 import RemoveStudios from './pages/RemoveStudios';
+import AddStudio from './pages/AddStudio';
+import Studiodetails from './pages/StudioDetailspage';
 import ProtectedPages from './pages/ProtectedPages';
 import UserOutlet from './pages/UserOutlet';
 
@@ -21,7 +24,7 @@ function App() {
   const dispatch = useDispatch();
 
   return (
-    <main>
+    <>
       {!hideNavigation && (
         <HiMenuAlt4
           className="menu-icon"
@@ -33,6 +36,7 @@ function App() {
         <Route exact path="/" element={<Landingpage />} />
         <Route exact path="/home" element={<Homepage />} />
         <Route exact path="/auth" element={<Authentication />} />
+        <Route exact path="studios/:id" element={<Studiodetails />} />
         <Route
           path="reservations"
           element={(
@@ -42,6 +46,11 @@ function App() {
           )}
         >
           <Route exact path="/reservations/new" element={<ReservationNew />} />
+          <Route
+            exact
+            path="/reservations/my-reservations"
+            element={<MyReservations />}
+          />
         </Route>
         <Route
           path="studio"
@@ -52,10 +61,11 @@ function App() {
           )}
         >
           <Route index element={<RemoveStudios />} />
+          <Route exact path="/studio/new" element={<AddStudio />} />
         </Route>
         <Route path="*" element={<NoMatch />} />
       </Routes>
-    </main>
+    </>
   );
 }
 

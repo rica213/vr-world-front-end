@@ -1,9 +1,16 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Navigation.css';
+import {
+  logOutUser,
+  toLogin,
+  toRegister,
+} from '../redux/features/AuthenticationSlice';
+import { toggleNav } from '../redux/features/NavbarSlice';
 
 const Navigation = () => {
+  const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.auth.token !== null);
   const isAdmin = useSelector(
     (state) => state.auth.user !== null && state.auth.user.admin === true,
@@ -12,6 +19,14 @@ const Navigation = () => {
     (state) => state.auth.user !== null && state.auth.user.username,
   );
   const isOpen = useSelector((state) => state.nav.isOpen);
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    dispatch(logOutUser());
+    navigate('/');
+  };
+  const handleHideNav = () => {
+    dispatch(toggleNav());
+  };
 
   const navStyle = {
     zIndex: '95',
@@ -31,31 +46,39 @@ const Navigation = () => {
   return (
     <nav style={navStyle}>
       <div className="logo-box">
-        <img src="logos/app-logo.png" alt="app-logo" className="app-logo" />
+        <img src="/logos/app-logo.png" alt="app-logo" className="app-logo" />
       </div>
       <ul className="pages-link">
         <li>
           <Link to="/home">
-            <button type="button">STUDIOS</button>
+            <button type="button" onClick={() => handleHideNav()}>
+              STUDIOS
+            </button>
           </Link>
         </li>
         {isAuthenticated && (
           <li>
-            <Link to="/my-reservations">
-              <button type="button">RESERVATIONS</button>
+            <Link to="/reservations/my-reservations">
+              <button type="button" onClick={() => handleHideNav()}>
+                RESERVATIONS
+              </button>
             </Link>
           </li>
         )}
         {isAdmin && (
           <>
             <li>
-              <Link to="/studio/new" className="admin-links">
-                <button type="button">ADD STUDIOS</button>
+              <Link to="/studio/new">
+                <button type="button" onClick={() => handleHideNav()}>
+                  ADD STUDIOS
+                </button>
               </Link>
             </li>
             <li>
-              <Link to="/studio" className="admin-links">
-                <button type="button">DELETE STUDIOS</button>
+              <Link to="/studio">
+                <button type="button" onClick={() => handleHideNav()}>
+                  DELETE STUDIOS
+                </button>
               </Link>
             </li>
           </>
@@ -68,12 +91,28 @@ const Navigation = () => {
             <>
               <li>
                 <Link to="/auth" className="auth-link">
-                  <button type="button">Log In</button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      dispatch(toLogin());
+                      handleHideNav();
+                    }}
+                  >
+                    Log In
+                  </button>
                 </Link>
               </li>
               <li>
                 <Link to="/auth" className="auth-link">
-                  <button type="button">Sign Up</button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      dispatch(toRegister());
+                      handleHideNav();
+                    }}
+                  >
+                    Sign Up
+                  </button>
                 </Link>
               </li>
             </>
@@ -81,7 +120,14 @@ const Navigation = () => {
           {isAuthenticated && (
             <li>
               <h5 className="username">{username}</h5>
-              <button type="button" className="down-btn">
+              <button
+                type="button"
+                className="down-btn"
+                onClick={() => {
+                  handleLogout();
+                  handleHideNav();
+                }}
+              >
                 Log Out
               </button>
             </li>

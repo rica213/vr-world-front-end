@@ -3,10 +3,13 @@ import { useEffect, useState } from 'react';
 import { FaFacebook } from 'react-icons/fa';
 import { AiFillTwitterCircle } from 'react-icons/ai';
 import { CgMail } from 'react-icons/cg';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const StudioCard = ({
-  details: { name, image_url: imageUrl, description },
+  details: {
+    name, image_url: imageUrl, description, id,
+  },
 }) => {
   const [color, setcolor] = useState('#5353538D');
   function generateRandomHexColor() {
@@ -29,7 +32,7 @@ const StudioCard = ({
   }, []);
 
   return (
-    <article className="studio-card">
+    <Link to={`/studios/${id}`} className="studio-card">
       <div className="studio-card-header">
         <div className="circle-color" style={{ backgroundColor: `${color}` }}>
           <img src={imageUrl} alt={name} className="circle-img" />
@@ -38,20 +41,23 @@ const StudioCard = ({
       <div className="studio-card-body">
         <h3>{name}</h3>
         <p className="dots">....................</p>
-        <p>{description}</p>
+        <p>
+          {description.slice(0, 30)}
+          ...
+        </p>
       </div>
       <div className="studio-card-footer">
-        <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
+        <span>
           <FaFacebook />
-        </a>
-        <a href="https://www.twitter.com" target="_blank" rel="noreferrer">
+        </span>
+        <span>
           <AiFillTwitterCircle />
-        </a>
-        <a href="www.google.com" target="_blank">
+        </span>
+        <span>
           <CgMail />
-        </a>
+        </span>
       </div>
-    </article>
+    </Link>
   );
 };
 StudioCard.propTypes = {
@@ -59,6 +65,7 @@ StudioCard.propTypes = {
     name: PropTypes.string.isRequired,
     image_url: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
   }).isRequired,
 };
 export default StudioCard;

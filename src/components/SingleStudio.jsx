@@ -21,7 +21,10 @@ const SingleStudio = ({
       <div className="studio-card-body">
         <h3>{name}</h3>
         <p className="dots">....................</p>
-        <p>{description}</p>
+        <p>
+          {description.slice(0, 30)}
+          ...
+        </p>
       </div>
       <div className="delete-overlay">
         <button
