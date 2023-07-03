@@ -17,7 +17,7 @@ const ConfirmationComponet = () => {
           className="confirm-btn confirm"
           onClick={() => removeStudio()}
         >
-          confrim
+          confirm
         </button>
         <button
           type="button"

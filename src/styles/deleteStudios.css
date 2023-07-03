@@ -90,8 +90,8 @@
 .confirm-container {
   display: grid;
   grid-template-columns: 1fr;
-  width: 80vh;
-  max-width: 400px;
+  width: 70vh;
+  max-width: 350px;
   background-color: white;
   align-items: center;
   min-height: 20vh;
