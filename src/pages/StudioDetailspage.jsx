@@ -29,15 +29,12 @@ const Studiodetails = () => {
 
         <div className="item details-section">
           <h1>{studio.name}</h1>
-          <p>{studio.description}</p>
+          <p className="color-text">{studio.description}</p>
           <div className="studio-price">
             <p className="text-tag">Price</p>
-            <p>
-              $
-              {studio.price}
-            </p>
+            <p>${studio.price}</p>
           </div>
-          <p className="text">Enjoyment Time</p>
+          <p className="text color-text">Enjoyment Time</p>
           <div className="studio-price">
             <p className="text-tag">Session</p>
             <p>
@@ -47,7 +44,7 @@ const Studiodetails = () => {
           </div>
 
           <div className="rating">
-            <p className="text ratng-text">Rating</p>
+            <p className="text ratng-text color-text">Rating</p>
             <div className="stars">
               <MultipliedStars times={studio.rating} />
             </div>
@@ -59,8 +56,7 @@ const Studiodetails = () => {
 
           <Link to="/reservations">
             <button type="button" className="reserve-btn">
-              Reserve
-              {' '}
+              Reserve{" "}
             </button>
           </Link>
         </div>
