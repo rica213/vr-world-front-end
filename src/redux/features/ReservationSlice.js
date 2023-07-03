@@ -22,14 +22,11 @@ export const fetchReservations = createAsyncThunk(
 // Create a new reservation
 export const createReservation = createAsyncThunk(
   'reservation/createReservation',
-  async ({ studioId, reservationDate, location }, thunkAPI) => {
+  async ({ studioId, details }, thunkAPI) => {
     try {
       const response = await axios.post(
         `${baseUrl}studios/${studioId}/reservations`,
-        {
-          reservationDate,
-          location,
-        },
+        details,
         {
           headers: {
             authorization: thunkAPI.getState().auth.token,
@@ -68,6 +65,7 @@ const initialState = {
   reservations: [],
   isLoading: false,
   error: null,
+  isSuccessfull: false,
 };
 
 // Create slice
@@ -98,16 +96,19 @@ const reservationSlice = createSlice({
       .addCase(createReservation.pending, (state) => ({
         ...state,
         isLoading: true,
+        isSuccessfull: false,
       }))
       .addCase(createReservation.fulfilled, (state, action) => ({
         ...state,
         reservations: [...state.reservations, action.payload],
         isLoading: false,
+        isSuccessfull: true,
       }))
       .addCase(createReservation.rejected, (state, action) => ({
         ...state,
         error: action.payload.error,
         isLoading: false,
+        isSuccessfull: false,
       }));
 
     // delete an existing reservation

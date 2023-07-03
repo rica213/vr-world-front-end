@@ -45,7 +45,11 @@ function App() {
             </ProtectedPages>
           )}
         >
-          <Route exact path="/reservations/new" element={<ReservationNew />} />
+          <Route
+            exact
+            path="/reservations/new/:studioId"
+            element={<ReservationNew />}
+          />
           <Route
             exact
             path="/reservations/my-reservations"

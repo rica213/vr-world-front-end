@@ -33,3 +33,8 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 }
+
+.no-reservation {
+  text-align: center;
+  margin-top: 25vh;
+}

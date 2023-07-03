@@ -1,11 +1,32 @@
 import React, { useState } from 'react';
 // import { useDispatch } from 'react-redux';
 import '../styles/ReservationNew.css';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { createReservation } from '../redux/features/ReservationSlice';
 
 const ReservationNew = () => {
-  //   const dispatch = useDispatch;
   const [city, setCity] = useState('');
   const [date, setDate] = useState(Date.now());
+  const { studioId } = useParams();
+  const { isLoading, isSuccessfull } = useSelector(
+    (state) => state.reservations,
+  );
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!city || !date) return;
+    const details = { location: city, reservation_date: date };
+    dispatch(createReservation({ studioId, details }));
+  };
+  React.useEffect(() => {
+    if (isSuccessfull) {
+      setCity('');
+      setDate(Date.now());
+      navigate('/reservations/my-reservations');
+    }
+  }, [isSuccessfull, navigate]);
 
   return (
     <div className="page-wrapper">
@@ -19,7 +40,7 @@ const ReservationNew = () => {
         </p>
       </div>
       <div className="form-box">
-        <form action="submit" className="form">
+        <form action="submit" className="form" onSubmit={handleSubmit}>
           <input
             type="text"
             className="city"
@@ -27,6 +48,7 @@ const ReservationNew = () => {
             value={city}
             onChange={(e) => setCity(e.target.value)}
             name="city"
+            required
           />
           <input
             type="date"
@@ -35,7 +57,7 @@ const ReservationNew = () => {
             value={date}
             name="date"
           />
-          <button type="submit" className="submit-btn">
+          <button type="submit" className="submit-btn" disabled={isLoading}>
             Book Now
           </button>
         </form>
