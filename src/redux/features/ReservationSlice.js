@@ -7,7 +7,11 @@ export const fetchReservations = createAsyncThunk(
   'reservation/fetchReservations',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get(`${baseUrl}reservations`);
+      const response = await axios.get(`${baseUrl}reservations`, {
+        headers: {
+          authorization: thunkAPI.getState().auth.token,
+        },
+      });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue({ error: error.message });
@@ -26,6 +30,11 @@ export const createReservation = createAsyncThunk(
           reservationDate,
           location,
         },
+        {
+          headers: {
+            authorization: thunkAPI.getState().auth.token,
+          },
+        },
       );
       return response.data;
     } catch (error) {
@@ -39,7 +48,14 @@ export const deleteReservation = createAsyncThunk(
   'reservation/deleteReservation',
   async ({ studioId, reservationId }, thunkAPI) => {
     try {
-      const response = await axios.delete(`${baseUrl}studios/${studioId}/reservations/${reservationId}`);
+      const response = await axios.delete(
+        `${baseUrl}studios/${studioId}/reservations/${reservationId}`,
+        {
+          headers: {
+            authorization: thunkAPI.getState().auth.token,
+          },
+        },
+      );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue({ error: error.message });
@@ -78,10 +94,11 @@ const reservationSlice = createSlice({
       }));
 
     // create a new reservation
-    builder.addCase(createReservation.pending, (state) => ({
-      ...state,
-      isLoading: true,
-    }))
+    builder
+      .addCase(createReservation.pending, (state) => ({
+        ...state,
+        isLoading: true,
+      }))
       .addCase(createReservation.fulfilled, (state, action) => ({
         ...state,
         reservations: [...state.reservations, action.payload],
@@ -94,10 +111,11 @@ const reservationSlice = createSlice({
       }));
 
     // delete an existing reservation
-    builder.addCase(deleteReservation.pending, (state) => ({
-      ...state,
-      isLoading: true,
-    }))
+    builder
+      .addCase(deleteReservation.pending, (state) => ({
+        ...state,
+        isLoading: true,
+      }))
       .addCase(deleteReservation.fulfilled, (state, action) => ({
         ...state,
         reservations: state.reservations.filter(

@@ -3,6 +3,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   studios: [],
+  studio: [],
   status: 'idle',
   error: null,
   isSuccessful: false,
@@ -69,9 +70,9 @@ export const deleteStudio = createAsyncThunk(
 
 // fetching studio
 
-const fetchStudio = createAsyncThunk(
+export const fetchStudio = createAsyncThunk(
   'studio/fetchStudio',
-  async ({ studioId }, thunkAPI) => {
+  async (studioId, thunkAPI) => {
     try {
       const response = await axios.get(
         `http://localhost:3000/api/v1/studios/${studioId}`,
@@ -148,7 +149,7 @@ const studioSlice = createSlice({
     builder.addCase(fetchStudio.fulfilled, (state, action) => ({
       ...state,
       status: 'successful',
-      studios: action.payload,
+      studio: action.payload,
     }));
     builder.addCase(fetchStudio.rejected, (state, action) => ({
       ...state,

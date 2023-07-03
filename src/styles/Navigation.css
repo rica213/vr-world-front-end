@@ -43,9 +43,11 @@
   border: none;
   background-color: transparent;
   width: 100%;
+  cursor: pointer;
 }
 
-.auth-link button {
+.auth-link button,
+.down-btn {
   border: none;
   border-bottom: #ffb400 2px solid;
   margin-bottom: 0.5vh;

@@ -7,6 +7,7 @@ import {
   toggleFormAuth,
 } from '../redux/features/AuthenticationSlice';
 import AuthRedirect from '../components/AuthRedirect';
+import '../styles/Authentication.css';
 
 const Authentication = () => {
   const dispatch = useDispatch();
@@ -58,13 +59,13 @@ const Authentication = () => {
   };
 
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
-      <h1>{formAuth === 'login' ? 'Log In' : 'Register'}</h1>
-      {formAuth === 'register' && (
-        <div className="field">
-          <label htmlFor="username">
-            {' '}
-            Username
+    <main className="auth-main">
+      <form onSubmit={(e) => handleSubmit(e)} className="form-wrapper">
+        <h1 className="auth-title">
+          {formAuth === 'login' ? 'Log In' : 'Register'}
+        </h1>
+        {formAuth === 'register' && (
+          <div className="field">
             <input
               type="text"
               placeholder="username"
@@ -74,13 +75,9 @@ const Authentication = () => {
               onChange={(e) => handleChange(e)}
               required
             />
-          </label>
-        </div>
-      )}
-      <div className="field">
-        <label htmlFor="email">
-          {' '}
-          Email
+          </div>
+        )}
+        <div className="field">
           <input
             type="email"
             placeholder="email"
@@ -90,12 +87,8 @@ const Authentication = () => {
             onChange={(e) => handleChange(e)}
             required
           />
-        </label>
-      </div>
-      <div className="field">
-        <label htmlFor="password">
-          {' '}
-          Password
+        </div>
+        <div className="field">
           <input
             type="password"
             placeholder="password"
@@ -105,13 +98,9 @@ const Authentication = () => {
             onChange={(e) => handleChange(e)}
             required
           />
-        </label>
-      </div>
-      {formAuth === 'register' && (
-        <div className="field">
-          <label htmlFor="confirmPassword">
-            {' '}
-            Confirm Password
+        </div>
+        {formAuth === 'register' && (
+          <div className="field">
             <input
               type="password"
               placeholder="confirm password"
@@ -121,22 +110,36 @@ const Authentication = () => {
               onChange={(e) => handleChange(e)}
               required
             />
-          </label>
-        </div>
-      )}
-      <button type="submit">
-        {formAuth === 'login' ? 'Log In' : 'Register'}
-      </button>
-      {formAuth === 'login' ? (
-        <button type="button" onClick={() => dispatch(toggleFormAuth())}>
-          Register
+          </div>
+        )}
+        <button type="submit" className="submit-btn">
+          {formAuth === 'login' ? 'Log In' : 'Register'}
         </button>
-      ) : (
-        <button type="button" onClick={() => dispatch(toggleFormAuth())}>
-          Log In
-        </button>
-      )}
-    </form>
+        {formAuth === 'login' ? (
+          <>
+            <p>Don&apos;t have an account?</p>
+            <button
+              type="button"
+              onClick={() => dispatch(toggleFormAuth())}
+              className="switch-auth"
+            >
+              Register
+            </button>
+          </>
+        ) : (
+          <>
+            <p>Already have an account?</p>
+            <button
+              type="button"
+              onClick={() => dispatch(toggleFormAuth())}
+              className="switch-auth"
+            >
+              Log In
+            </button>
+          </>
+        )}
+      </form>
+    </main>
   );
 };
 
