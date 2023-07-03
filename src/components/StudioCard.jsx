@@ -43,7 +43,7 @@ const StudioCard = ({
         <p className="dots">....................</p>
         <p>
           {description.slice(0, 30)}
-          ...
+          {description.length > 30 && '...'}
         </p>
       </div>
       <div className="studio-card-footer">

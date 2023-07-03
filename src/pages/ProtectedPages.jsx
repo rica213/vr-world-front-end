@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 const ProtectedPages = ({ children }) => {
   const { user } = useSelector((state) => state.auth);
   if (!user) {
-    return <Navigate to="/home" />;
+    return <Navigate to="/auth" />;
   }
   return children;
 };

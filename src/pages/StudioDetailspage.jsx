@@ -57,7 +57,7 @@ const Studiodetails = () => {
             <div className="loader" />
           </div>
 
-          <Link to="/reservations/new">
+          <Link to={`/reservations/new/${studio.id}`}>
             <button type="button" className="reserve-btn">
               Reserve
               {' '}
