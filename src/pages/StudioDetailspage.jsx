@@ -32,7 +32,10 @@ const Studiodetails = () => {
           <p className="color-text">{studio.description}</p>
           <div className="studio-price">
             <p className="text-tag">Price</p>
-            <p>${studio.price}</p>
+            <p>
+              $
+              {studio.price}
+            </p>
           </div>
           <p className="text color-text">Enjoyment Time</p>
           <div className="studio-price">
@@ -56,7 +59,8 @@ const Studiodetails = () => {
 
           <Link to="/reservations">
             <button type="button" className="reserve-btn">
-              Reserve{" "}
+              Reserve
+              {' '}
             </button>
           </Link>
         </div>
