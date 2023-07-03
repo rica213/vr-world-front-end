@@ -6,6 +6,8 @@ const initialState = {
   studio: [],
   status: 'idle',
   error: null,
+  flagId: null,
+  isModalOpen: false,
   isSuccessful: false,
 };
 
@@ -89,7 +91,11 @@ export const fetchStudio = createAsyncThunk(
 const studioSlice = createSlice({
   name: 'studio',
   initialState,
-  reducers: {},
+  reducers: {
+    setFlagId: (state, { payload }) => ({ ...state, flagId: payload }),
+    closeModal: (state) => ({ ...state, isModalOpen: false }),
+    openModal: (state) => ({ ...state, isModalOpen: true }),
+  },
   extraReducers: (builder) => {
     // fetch all studios
     builder.addCase(fetchStudios.pending, (state) => ({
@@ -134,6 +140,7 @@ const studioSlice = createSlice({
     builder.addCase(deleteStudio.fulfilled, (state) => ({
       ...state,
       status: 'successful',
+      flagId: null,
     }));
     builder.addCase(deleteStudio.rejected, (state, action) => ({
       ...state,
@@ -159,4 +166,5 @@ const studioSlice = createSlice({
   },
 });
 
+export const { setFlagId, openModal, closeModal } = studioSlice.actions;
 export default studioSlice.reducer;

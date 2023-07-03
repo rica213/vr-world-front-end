@@ -13,7 +13,7 @@ const Studiodetails = () => {
 
   useEffect(() => {
     dispatch(fetchStudio(id));
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   return (
     <>
@@ -57,7 +57,7 @@ const Studiodetails = () => {
             <div className="loader" />
           </div>
 
-          <Link to="/reservations">
+          <Link to="/reservations/new">
             <button type="button" className="reserve-btn">
               Reserve
               {' '}

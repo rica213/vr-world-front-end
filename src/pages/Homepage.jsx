@@ -15,7 +15,7 @@ const Homepage = () => {
     <main className="main-container">
       <section className="homepage-section">
         <h2>Available Studios </h2>
-        <h5>please select a studio</h5>
+        <h4>please select a studio</h4>
         <Couresel studios={studios} />
       </section>
     </main>

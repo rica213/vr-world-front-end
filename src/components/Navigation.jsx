@@ -58,7 +58,7 @@ const Navigation = () => {
         </li>
         {isAuthenticated && (
           <li>
-            <Link to="/my-reservations">
+            <Link to="/reservations/my-reservations">
               <button type="button" onClick={() => handleHideNav()}>
                 RESERVATIONS
               </button>
@@ -75,7 +75,7 @@ const Navigation = () => {
               </Link>
             </li>
             <li>
-              <Link to="/studios/delete">
+              <Link to="/studio">
                 <button type="button" onClick={() => handleHideNav()}>
                   DELETE STUDIOS
                 </button>
