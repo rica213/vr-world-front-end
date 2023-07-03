@@ -1,239 +1,158 @@
 <a name="readme-top"></a>
 
-<!--
-HOW TO USE:
-This is an example of how you may give instructions on setting up your project locally.
-
-Modify this file to match your project and remove sections that don't apply.
-
-REQUIRED SECTIONS:
-- Table of Contents
-- About the Project
-  - Built With
-  - Live Demo
-- Getting Started
-- Authors
-- Future Features
-- Contributing
-- Show your support
-- Acknowledgements
-- License
-
-OPTIONAL SECTIONS:
-- FAQ
-
-After you're finished please remove all the comments and instructions!
--->
-
 <div align="center">
-  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
-  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
+  <img src="./public/logos/app-logo.png" alt="logo" width="150"  height="auto" />
   <br/>
-
-  <h3><b>Microverse README Template</b></h3>
-
+  <h1><b>🌪 VR-WORLD 🌪</b></h1>
 </div>
 
 <!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
 
-- [📖 About the Project](#about-project)
-  - [🛠 Built With](#built-with)
-    - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
+- [🪐 About the Project](#about-project)
+- [🛠 Built With](#built-with)
+  - [Tech Stack](#tech-stack)
+- [💮 Key Features](#key-features)
+- [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
-  - [Setup](#setup)
-  - [Prerequisites](#prerequisites)
-  - [Install](#install)
-  - [Usage](#usage)
-  - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
+  - [↣ Prerequisites](#prerequisites)
+  - [↣ Setup](#setup)
+  - [↣ Install](#install)
+  - [↣ Usage](#usage)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [your_project_name] <a name="about-project"></a>
+# 🪐 VR-WORLD <a name="about-project"></a>
 
-> Describe your project in 1 or 2 sentences.
+### _Your Gateway to Immersive Virtual Reality Experiences!_<br>
 
-**[your_project__name]** is a...
+**VR-WORLD** is a cutting-edge platform that connects you with a curated selection of virtual reality studios and experiences.<br> Our mission is to provide a seamless booking process for thrilling VR sessions, putting the power of choice in your hands. <br>
 
-## 🛠 Built With <a name="built-with"></a>
+With **VR-WORLD**, you can explore a diverse range of partner studios, each offering unique and captivating virtual reality experiences. <br> From adrenaline-pumping gaming adventures to awe-inspiring educational simulations, our platform showcases a variety of options to suit every interest and preference.
 
-### Tech Stack <a name="tech-stack"></a>
+# 🛠 Built With <a name="built-with"></a>
 
-> Describe the tech stack and include only the relevant sections that apply to your project.
+## Tech Stack <a name="tech-stack"></a>
 
-<details>
-  <summary>Client</summary>
-  <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
-  </ul>
-</details>
-
-<details>
-  <summary>Server</summary>
-  <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
-  </ul>
-</details>
-
-<details>
-<summary>Database</summary>
-  <ul>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-  </ul>
-</details>
+#### 👉 [React JS](https://reactjs.org)
+#### 👉 [Redux Toolkit]()
+#### 👉 [Axios]()
 
 <!-- Features -->
 
-### Key Features <a name="key-features"></a>
+# 💮 Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
-
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+- **User can authenticate**
+- **User can browse the list of virtual reality offered**
+- **User can book a session**
+- **User can check their reservations**
+- **Admin can add a new studio**
+- **Admin can delete existing studio**
+- **responsive application**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
 
-## 🚀 Live Demo <a name="live-demo"></a>
+# 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
-
-- [Live Demo Link](https://google.com)
+Coming Soon
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 
-## 💻 Getting Started <a name="getting-started"></a>
-
-> Describe how a new developer could make use of your project.
+# 💻 Getting Started <a name="getting-started"></a>
 
 To get a local copy up and running, follow these steps.
 
-### Prerequisites
+## ⨁ Prerequisites <a name="prerequisites"></a>
 
 In order to run this project you need:
 
-<!--
-Example command:
+  A _browser_ to run the project <br>
+  A _terminal_ to install the dependencies
 
-```sh
- gem install rails
-```
- -->
-
-### Setup
+## ⨁ Setup <a name="setup"></a>
 
 Clone this repository to your desired folder:
 
-<!--
-Example commands:
-
 ```sh
   cd my-folder
-  git clone git@github.com:myaccount/my-project.git
+  git clone git@github.com:rica213/vr-world-front-end.git
 ```
---->
 
-### Install
+## ⨁ Install <a name="install"></a>
 
 Install this project with:
 
-<!--
-Example command:
-
 ```sh
-  cd my-project
-  gem install
+  cd vr-world-front-end
+  npm install
 ```
---->
 
-### Usage
+## ⨁ Usage <a name="usage"></a>
 
 To run the project, execute the following command:
 
-<!--
-Example command:
-
 ```sh
-  rails server
+  npm run dev
 ```
---->
-
-### Run tests
-
-To run tests, run the following command:
-
-<!--
-Example command:
-
-```sh
-  bin/rails test test/models/article_test.rb
-```
---->
-
-### Deployment
-
-You can deploy this project using:
-
-<!--
-Example:
-
-```sh
-
-```
- -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
 
-## 👥 Authors <a name="authors"></a>
+# 🧑🏽‍💻 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
+🫠 **Clarielle Larissa 🇲🇬**
 
-👤 **Author1**
+- GitHub: [@rica213](https://github.com/rica213)
+- Twitter: [@alc3and](https://twitter.com/alc3and)
+- LinkedIn: [Clarielle Larissa](https://linkedin.com/in/larissa-clarielle)
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+😁 **Shaaibu Suleiman 🇳🇬**
 
-👤 **Author2**
+- GitHub: [@shaaibu7](https://github.com/shaaibu7)
+- Twitter: [@SuleimanShaaibu](https://twitter.com/SuleimanShaaibu)
+- LinkedIn: [Shaaibu Suleiman](https://linkedin.com/in/shaaibusuleiman)
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+😎 **Samuel Amankwaa-Frempong 🇬🇭**
+
+- GitHub: [@frempongdev](https://github.com/frempongdev)
+- Twitter: [@knobaddy](https://twitter.com/knobaddy)
+- LinkedIn: [Frempong](https://linkedin.com/in/frempongdev)
+
+
+🤓 **Ambrose Kibet 🇰🇪**
+
+- GitHub: [@ambrose-kibet](https://github.com/ambrose-kibet)
+- Twitter: [@ambrose_kibet](https://twitter.com/ambrose_kibet)
+- LinkedIn: [Ambrose Kibet](https://linkedin.com/in/ambrose-kibet)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
 
-## 🔭 Future Features <a name="future-features"></a>
+# 🔭 Future Features <a name="future-features"></a>
 
-> Describe 1 - 3 features you will add to the project.
-
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- [ ] **User can update their reservation**
+- [ ] **User can cancel reservations**
+- [ ] **Admin can update information about studios**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
 
-## 🤝 Contributing <a name="contributing"></a>
+# 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
 
@@ -243,11 +162,18 @@ Feel free to check the [issues page](../../issues/).
 
 <!-- SUPPORT -->
 
-## ⭐️ Show your support <a name="support"></a>
+# ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
+### Show Your Support for VR-WORLD!
+As a platform dedicated to bringing you the best VR experiences, we greatly value your support.<br>
 
-If you like this project...
+Here are a few ways you can show your enthusiasm and help us spread the word about VR-WORLD:<br>
+
+#### 🗣️ Spread the Word: Share your VR-WORLD experience with friends, family, and colleagues.
+#### 📲 Engage on Social Media: Follow us on our social media channels and actively engage with our posts.
+#### ✍🏻 Provide Feedback: We value your input and want to continuously enhance the VR-WORLD experience.
+#### ⭐️⭐️⭐️⭐️ Star the repository: Star is our currency 💸
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -255,34 +181,17 @@ If you like this project...
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
-
-I would like to thank...
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FAQ (optional) -->
-
-## ❓ FAQ (OPTIONAL) <a name="faq"></a>
-
-> Add at least 2 questions new developers would ask when they decide to use your project.
-
-- **[Question_1]**
-
-  - [Answer_1]
-
-- **[Question_2]**
-
-  - [Answer_2]
+We would like to thank: 
+- Microverse for all the provided guidance
+- [Murat Korkmaz](https://www.behance.net/muratk) for providing the original [design](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign)
+- Code Reviewers for all their suggestions
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
 
-## 📝 License <a name="license"></a>
+# 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
