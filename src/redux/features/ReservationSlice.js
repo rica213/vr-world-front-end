@@ -7,7 +7,7 @@ export const fetchReservations = createAsyncThunk(
   'reservation/fetchReservations',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get(`${baseUrl}reservations`);
+      const response = await axios.get(`${baseUrl}/api/v1/reservations`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue({ error: error.message });
@@ -21,7 +21,7 @@ export const createReservation = createAsyncThunk(
   async ({ studioId, reservationDate, location }, thunkAPI) => {
     try {
       const response = await axios.post(
-        `${baseUrl}studios/${studioId}/reservations`,
+        `${baseUrl}/api/v1/studios/${studioId}/reservations`,
         {
           reservationDate,
           location,
@@ -39,7 +39,7 @@ export const deleteReservation = createAsyncThunk(
   'reservation/deleteReservation',
   async ({ studioId, reservationId }, thunkAPI) => {
     try {
-      const response = await axios.delete(`${baseUrl}studios/${studioId}/reservations/${reservationId}`);
+      const response = await axios.delete(`${baseUrl}/api/v1/studios/${studioId}/reservations/${reservationId}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue({ error: error.message });

@@ -5,8 +5,8 @@ import {
   getLocalStorage,
   removeLocalStorage,
 } from '../../helpers/localStorage';
+import baseUrl from '../../utils/urls';
 
-const baseUrl = 'http://localhost:3000/users';
 const initialState = {
   token: getLocalStorage('token') || null,
   user: getLocalStorage('user') || null,
@@ -25,7 +25,7 @@ export const logInUser = createAsyncThunk(
   'auth/login',
   async (userInput, thunkAPI) => {
     try {
-      const response = await axios.post(`${baseUrl}/sign_in`, userInput);
+      const response = await axios.post(`${baseUrl}/users/sign_in`, userInput);
       // eslint-disable-next-line dot-notation
       const tempToken = response.headers.getAuthorization(/Bearer /)['input'];
       response.data.tempToken = tempToken;
@@ -39,7 +39,7 @@ export const logOutUser = createAsyncThunk(
   'auth/logout',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.delete(`${baseUrl}/sign_out`, {
+      const response = await axios.delete(`${baseUrl}/users/sign_out`, {
         headers: {
           authorization: thunkAPI.getState().auth.token,
         },
@@ -54,7 +54,7 @@ export const registerUser = createAsyncThunk(
   'auth/register',
   async (userInput, thunkAPI) => {
     try {
-      const response = await axios.post(baseUrl, userInput);
+      const response = await axios.post(`${baseUrl}/users`, userInput);
 
       return response.data;
     } catch (error) {

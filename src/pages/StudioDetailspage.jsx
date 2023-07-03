@@ -13,7 +13,7 @@ const Studiodetails = () => {
 
   useEffect(() => {
     dispatch(fetchStudio(id));
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   return (
     <>

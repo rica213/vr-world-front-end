@@ -1,3 +1,3 @@
-const baseUrl = 'http://localhost:3000/api/v1/';
+const baseUrl = 'https://vr-world-app.onrender.com';
 
 export default baseUrl;
