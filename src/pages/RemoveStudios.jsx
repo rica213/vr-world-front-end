@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchStudios } from '../redux/features/StudioSlice';
 import SingleStudio from '../components/SingleStudio';
 import '../styles/deleteStudios.css';
+import ModalOveralay from '../components/ModalOveralay';
 
 const RemoveStudios = () => {
   const { studios } = useSelector((state) => state.studios);
@@ -19,6 +20,7 @@ const RemoveStudios = () => {
           <SingleStudio key={studio.id} details={studio} />
         ))}
       </div>
+      <ModalOveralay />
     </section>
   );
 };

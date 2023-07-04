@@ -1,0 +1,40 @@
+.reservation-title {
+  text-align: center;
+  padding-top: 5vh;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  color: #444141;
+}
+
+.reservation-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  list-style: none;
+  margin-top: 5vh;
+}
+
+.reservation-card {
+  padding: 10px;
+  text-align: center;
+  height: 150px;
+  color: white;
+}
+
+.reservation-card:hover {
+  filter: contrast(1.2);
+}
+
+.reservation-card p {
+  color: #000;
+}
+
+@media (min-width: 600px) {
+  .reservation-list {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+.no-reservation {
+  text-align: center;
+  margin-top: 25vh;
+}

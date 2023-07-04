@@ -28,13 +28,13 @@ const Couresel = ({ studios }) => {
     slidesToScroll: 1, // Number of items to scroll at a time
     responsive: [
       {
-        breakpoint: 800, // Adjust settings for smaller screens
+        breakpoint: 900, // Adjust settings for smaller screens
         settings: {
           slidesToShow: studios.length > 1 ? 2 : 1,
         },
       },
       {
-        breakpoint: 480, // Adjust settings for mobile screens
+        breakpoint: 660, // Adjust settings for mobile screens
         settings: {
           slidesToShow: 1,
         },

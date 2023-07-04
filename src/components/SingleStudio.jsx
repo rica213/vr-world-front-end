@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { FaTrash } from 'react-icons/fa';
 import PropTypes from 'prop-types';
-import { deleteStudio } from '../redux/features/StudioSlice';
+import { setFlagId, openModal } from '../redux/features/StudioSlice';
 
 const SingleStudio = ({
   details: {
@@ -9,7 +9,10 @@ const SingleStudio = ({
   },
 }) => {
   const dispatch = useDispatch();
-  const handleDelete = (id) => dispatch(deleteStudio(id));
+  const handleDelete = (id) => {
+    dispatch(setFlagId(id));
+    dispatch(openModal());
+  };
   return (
     <article className="single-studio-card">
       <div className="circle-color">
@@ -18,7 +21,10 @@ const SingleStudio = ({
       <div className="studio-card-body">
         <h3>{name}</h3>
         <p className="dots">....................</p>
-        <p>{description}</p>
+        <p>
+          {description.slice(0, 30)}
+          {description.length > 30 && '...'}
+        </p>
       </div>
       <div className="delete-overlay">
         <button
