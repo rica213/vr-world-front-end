@@ -4,7 +4,7 @@
   left: 1%;
   height: 5vh;
   width: auto;
-  color: rgb(176, 176, 176);
+  color: #729402;
   z-index: 99;
   transition: all 0.5s;
 }
