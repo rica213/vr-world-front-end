@@ -57,7 +57,7 @@ const ReservationNew = () => {
             value={date}
             name="date"
           />
-          <button type="submit" className="submit-btn" disabled={isLoading}>
+          <button type="submit" className="submit-bttn" disabled={isLoading}>
             Book Now
           </button>
         </form>

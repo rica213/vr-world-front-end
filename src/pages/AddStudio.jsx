@@ -114,7 +114,7 @@ const AddStudio = () => {
             value={studioDetails.image_url}
             required
           />
-          <button type="submit" className="submit-btn">
+          <button type="submit" className="submit-bttn">
             Add Studio
           </button>
         </form>
