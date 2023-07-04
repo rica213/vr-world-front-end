@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import baseUrl from '../../utils/urls';
 
 const initialState = {
   studios: [],
@@ -17,7 +18,7 @@ export const fetchStudios = createAsyncThunk(
   'studios/fetchStudios',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get('http://localhost:3000/api/v1/studios');
+      const response = await axios.get(`${baseUrl}/api/v1/studios`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue({ error: error.message });
@@ -32,7 +33,7 @@ export const createStudio = createAsyncThunk(
   async (studioDetails, thunkAPI) => {
     try {
       const response = await axios.post(
-        'http://localhost:3000/api/v1/studios',
+        `${baseUrl}/api/v1/studios`,
         studioDetails,
         {
           headers: {
@@ -55,7 +56,7 @@ export const deleteStudio = createAsyncThunk(
   async (studioId, thunkAPI) => {
     try {
       const response = await axios.delete(
-        `http://localhost:3000/api/v1/studios/${studioId}`,
+        `${baseUrl}/api/v1/studios/${studioId}`,
         {
           headers: {
             authorization: thunkAPI.getState().auth.token,
@@ -76,9 +77,7 @@ export const fetchStudio = createAsyncThunk(
   'studio/fetchStudio',
   async (studioId, thunkAPI) => {
     try {
-      const response = await axios.get(
-        `http://localhost:3000/api/v1/studios/${studioId}`,
-      );
+      const response = await axios.get(`${baseUrl}/api/v1/studios/${studioId}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue({ error: error.message });
