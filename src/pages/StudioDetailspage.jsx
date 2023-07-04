@@ -18,7 +18,6 @@ const Studiodetails = () => {
   return (
     <>
       <div className="container">
-        <div className="item" />
         <div className="item image-contain">
           <img
             src={studio?.image_url}
