@@ -81,7 +81,7 @@ const AddStudio = () => {
           <input
             type="number"
             className="city"
-            placeholder="Duration"
+            placeholder="Duration per session"
             name="duration"
             onChange={(e) => handleChange(e)}
             value={studioDetails.duration}
