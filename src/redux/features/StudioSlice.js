@@ -94,6 +94,7 @@ const studioSlice = createSlice({
     setFlagId: (state, { payload }) => ({ ...state, flagId: payload }),
     closeModal: (state) => ({ ...state, isModalOpen: false }),
     openModal: (state) => ({ ...state, isModalOpen: true }),
+    setSuccessful: (state) => ({ ...state, isSuccessful: false }),
   },
   extraReducers: (builder) => {
     // fetch all studios
@@ -165,5 +166,7 @@ const studioSlice = createSlice({
   },
 });
 
-export const { setFlagId, openModal, closeModal } = studioSlice.actions;
+export const {
+  setFlagId, openModal, closeModal, setSuccessful,
+} = studioSlice.actions;
 export default studioSlice.reducer;
