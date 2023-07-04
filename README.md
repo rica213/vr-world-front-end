@@ -42,8 +42,8 @@ With **VR-WORLD**, you can explore a diverse range of partner studios, each offe
 ## Tech Stack <a name="tech-stack"></a>
 
 #### 👉 [React JS](https://reactjs.org)
-#### 👉 [Redux Toolkit]()
-#### 👉 [Axios]()
+#### 👉 [Redux Toolkit](https://redux-toolkit.js.org/)
+#### 👉 [Axios](https://axios-http.com/docs/intro)
 
 <!-- Features -->
 
@@ -147,6 +147,7 @@ To run the project, execute the following command:
 - [ ] **User can update their reservation**
 - [ ] **User can cancel reservations**
 - [ ] **Admin can update information about studios**
+- [ ] **User can rate their experience**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
