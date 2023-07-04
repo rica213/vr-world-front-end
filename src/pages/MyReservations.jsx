@@ -8,6 +8,9 @@ const MyReservations = () => {
   const dispatch = useDispatch();
 
   const reservations = useSelector((state) => state.reservations.reservations);
+  const isAdmin = useSelector(
+    (state) => state.auth.user !== null && state.auth.user.admin === true,
+  );
 
   useEffect(() => {
     dispatch(fetchReservations());
@@ -29,7 +32,11 @@ const MyReservations = () => {
 
   return (
     <main>
-      <h1 className="reservation-title">My Reservations</h1>
+      {isAdmin ? (
+        <h1 className="reservation-title">All Reservations</h1>
+      ) : (
+        <h1 className="reservation-title">My Reservations</h1>
+      )}
       {(reservations.length > 0 && (
         <ul className="reservation-list">
           {reservations.map((reservation, index) => {
@@ -49,7 +56,17 @@ const MyReservations = () => {
                 <div
                   className="res-stud-box"
                   style={{
-                    backgroundImage: `url(${studio?.image_url})`, backgroundPosition: '0px', backgroundSize: '200%', backgroundRepeat: 'no-repeat', width: '100%', minHeight: '150px', position: 'relative', top: '0', left: '0', zIndex: '0', opacity: '0.09',
+                    backgroundImage: `url(${studio?.image_url})`,
+                    backgroundPosition: '0px',
+                    backgroundSize: '200%',
+                    backgroundRepeat: 'no-repeat',
+                    width: '100%',
+                    minHeight: '150px',
+                    position: 'relative',
+                    top: '0',
+                    left: '0',
+                    zIndex: '0',
+                    opacity: '0.09',
                   }}
                 />
 
