@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import '../styles/ReservationNew.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { createReservation } from '../redux/features/ReservationSlice';
+import { createReservation, resetSuccessful } from '../redux/features/ReservationSlice';
 
 const ReservationNew = () => {
   const [city, setCity] = useState('');
@@ -25,8 +25,9 @@ const ReservationNew = () => {
       setCity('');
       setDate(Date.now());
       navigate('/reservations/my-reservations');
+      dispatch(resetSuccessful());
     }
-  }, [isSuccessfull, navigate]);
+  }, [dispatch, isSuccessfull, navigate]);
 
   return (
     <div className="page-wrapper">
