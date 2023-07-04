@@ -1,9 +1,9 @@
 .landingpage-wrapper {
-  background: linear-gradient(to bottom, #ffb400, #ffb401, rgb(255, 200, 19));
-  background-image: url(/virtual-reality_bg.png);
-  background-position: 58% 19%;
+  background-color: #ffb400;
+  background-image: url(/yellow-woman-bg.png);
+  background-position: -87vh 0;
   background-repeat: no-repeat;
-  background-size: 378%;
+  background-size: 211vh;
   width: 100%;
   height: 100vh;
   padding: 0%;
