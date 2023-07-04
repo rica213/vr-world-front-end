@@ -8,6 +8,9 @@ const MyReservations = () => {
   const dispatch = useDispatch();
 
   const reservations = useSelector((state) => state.reservations.reservations);
+  const isAdmin = useSelector(
+    (state) => state.auth.user !== null && state.auth.user.admin === true
+  );
 
   useEffect(() => {
     dispatch(fetchReservations());
