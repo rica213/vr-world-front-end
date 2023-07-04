@@ -166,5 +166,7 @@ const studioSlice = createSlice({
   },
 });
 
-export const { setFlagId, openModal, closeModal, setSuccessful } = studioSlice.actions;
+export const {
+  setFlagId, openModal, closeModal, setSuccessful,
+} = studioSlice.actions;
 export default studioSlice.reducer;
