@@ -63,7 +63,7 @@ With **VR-WORLD**, you can explore a diverse range of partner studios, each offe
 
 # 🚀 Live Demo <a name="live-demo"></a>
 
-Coming Soon
+### 👉 [LIVE DEMO](https://vr-world23.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
