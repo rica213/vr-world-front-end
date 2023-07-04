@@ -9,7 +9,7 @@ const MyReservations = () => {
 
   const reservations = useSelector((state) => state.reservations.reservations);
   const isAdmin = useSelector(
-    (state) => state.auth.user !== null && state.auth.user.admin === true
+    (state) => state.auth.user !== null && state.auth.user.admin === true,
   );
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const MyReservations = () => {
         <ul className="reservation-list">
           {reservations.map((reservation, index) => {
             const studio = studios.find(
-              (studio) => studio.id === reservation.studio_id
+              (studio) => studio.id === reservation.studio_id,
             );
             const reservationStyle = {
               backgroundColor: getRandomColor(index),
@@ -57,16 +57,16 @@ const MyReservations = () => {
                   className="res-stud-box"
                   style={{
                     backgroundImage: `url(${studio?.image_url})`,
-                    backgroundPosition: "0px",
-                    backgroundSize: "200%",
-                    backgroundRepeat: "no-repeat",
-                    width: "100%",
-                    minHeight: "150px",
-                    position: "relative",
-                    top: "0",
-                    left: "0",
-                    zIndex: "0",
-                    opacity: "0.09",
+                    backgroundPosition: '0px',
+                    backgroundSize: '200%',
+                    backgroundRepeat: 'no-repeat',
+                    width: '100%',
+                    minHeight: '150px',
+                    position: 'relative',
+                    top: '0',
+                    left: '0',
+                    zIndex: '0',
+                    opacity: '0.09',
                   }}
                 />
 
