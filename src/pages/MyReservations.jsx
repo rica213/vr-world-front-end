@@ -46,9 +46,18 @@ const MyReservations = () => {
                 className="reservation-card"
                 style={reservationStyle}
               >
-                <h3>{studio.name}</h3>
-                <p>{reservation.reservation_date}</p>
-                <p>{reservation.location}</p>
+                <div
+                  className="res-stud-box"
+                  style={{
+                    backgroundImage: `url(${studio?.image_url})`, backgroundPosition: '0px', backgroundSize: '200%', backgroundRepeat: 'no-repeat', width: '100%', minHeight: '150px', position: 'relative', top: '0', left: '0', zIndex: '0', opacity: '0.09',
+                  }}
+                />
+
+                <div className="res-description">
+                  <h3>{studio?.name}</h3>
+                  <p>{reservation.reservation_date}</p>
+                  <p>{reservation.location}</p>
+                </div>
               </li>
             );
           })}
