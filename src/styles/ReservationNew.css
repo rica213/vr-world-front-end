@@ -46,7 +46,19 @@ p {
   color: white;
 }
 
-.submit-btn {
+.submit-bttn {
   background-color: white;
   color: #96be0e;
+}
+
+@media screen and (min-width: 768px) {
+  .description {
+    width: 85vw;
+  }
+}
+
+@media (min-width: 1200px) {
+  .description {
+    width: 65vw;
+  }
 }

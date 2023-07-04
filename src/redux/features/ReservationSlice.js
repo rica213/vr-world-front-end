@@ -70,7 +70,9 @@ const initialState = {
 const reservationSlice = createSlice({
   name: 'reservation',
   initialState,
-  reducers: {},
+  reducers: {
+    resetSuccessful: (state) => ({ ...state, isSuccessfull: false }),
+  },
   extraReducers: (builder) => {
     // fetch all existing reservations
     builder
@@ -130,4 +132,5 @@ const reservationSlice = createSlice({
   },
 });
 
+export const { resetSuccessful } = reservationSlice.actions;
 export default reservationSlice.reducer;

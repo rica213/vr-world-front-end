@@ -90,18 +90,19 @@
 .confirm-container {
   display: grid;
   grid-template-columns: 1fr;
-  width: 70vh;
-  max-width: 350px;
+  max-width: 67%;
+  height: 16vh;
   background-color: white;
   align-items: center;
-  min-height: 20vh;
   padding: 1rem;
+  border: #e5ffd5 solid 4px;
 }
 
 .confrim-btns-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 10%;
 }
 
 .confirm-btn {

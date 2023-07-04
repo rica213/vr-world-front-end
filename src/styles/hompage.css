@@ -88,7 +88,9 @@
 .circle-img {
   height: 90%;
   width: 90%;
+  overflow: hidden;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .studio-card-body {

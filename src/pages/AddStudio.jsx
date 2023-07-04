@@ -82,7 +82,7 @@ const AddStudio = () => {
           <input
             type="number"
             className="city"
-            placeholder="Duration"
+            placeholder="Duration per session"
             name="duration"
             onChange={(e) => handleChange(e)}
             value={studioDetails.duration}
@@ -115,7 +115,7 @@ const AddStudio = () => {
             value={studioDetails.image_url}
             required
           />
-          <button type="submit" className="submit-btn">
+          <button type="submit" className="submit-bttn">
             Add Studio
           </button>
         </form>
