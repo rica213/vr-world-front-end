@@ -50,8 +50,7 @@ export const deleteReservation = createAsyncThunk(
           headers: {
             authorization: thunkAPI.getState().auth.token,
           },
-        },
-      );
+        });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue({ error: error.message });

@@ -100,6 +100,10 @@ const authSlice = createSlice({
           token: payload.tempToken,
           user: payload.status.data,
           isLoading: false,
+          tempUser: {
+            email: '',
+            password: '',
+          },
         };
       })
       .addCase(logInUser.rejected, (state, { payload }) => ({
@@ -140,6 +144,10 @@ const authSlice = createSlice({
       .addCase(registerUser.fulfilled, (state) => ({
         ...state,
         isLoading: false,
+        tempUser: {
+          username: '',
+          confirmPassword: '',
+        },
       }))
       .addCase(registerUser.rejected, (state, { payload }) => ({
         ...state,
