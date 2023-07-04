@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { createStudio } from '../redux/features/StudioSlice';
+import { createStudio, setSuccessful } from '../redux/features/StudioSlice';
 
 const AddStudio = () => {
   const { error, isSuccessful } = useSelector((state) => state.studios);
@@ -40,6 +40,7 @@ const AddStudio = () => {
       });
 
       navigate('/home');
+      dispatch(setSuccessful());
     }
   }, [isSuccessful, navigate]);
 
