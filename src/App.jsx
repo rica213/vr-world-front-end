@@ -18,7 +18,7 @@ import Studiodetails from './pages/StudioDetailspage';
 import ProtectedPages from './pages/ProtectedPages';
 import UserOutlet from './pages/UserOutlet';
 
-function App() {
+const App = () => {
   const location = useLocation();
   const hideNavigation = location.pathname === '/';
   const dispatch = useDispatch();
