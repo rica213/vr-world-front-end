@@ -1,0 +1,84 @@
+.menu-icon {
+  position: fixed;
+  top: 2%;
+  left: 1%;
+  height: 5vh;
+  width: auto;
+  color: #729402;
+  z-index: 99;
+  transition: all 0.5s;
+}
+
+.menu-icon:hover {
+  color: rgb(90, 90, 90);
+}
+
+.logo-box {
+  width: 100%;
+}
+
+.app-logo {
+  height: auto;
+  width: 100%;
+}
+
+.pages-link > * {
+  margin-bottom: 0.5vh;
+  border-top: #96be0e solid 0.5px;
+}
+
+.pages-link a {
+  text-decoration: none;
+  color: black;
+  padding: 1.5vh 0%;
+}
+
+.pages-link a:focus-within {
+  background-color: #96be0e;
+}
+
+.pages-link button {
+  text-align: left;
+  padding: 1.5vh;
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  cursor: pointer;
+}
+
+.auth-link button,
+.down-btn {
+  border: none;
+  border-bottom: #ffb400 2px solid;
+  margin-bottom: 0.5vh;
+  width: 100%;
+  padding: 0.6vh 0%;
+}
+
+.pages-link button:active {
+  color: white;
+}
+
+.auth-link {
+  text-decoration: none;
+  color: white;
+}
+
+.social-bottom {
+  height: 7vh;
+  position: absolute;
+  bottom: 0;
+  left: 3%;
+}
+
+.username {
+  font-size: 1.7vh;
+  margin-bottom: 1vh;
+}
+
+@media screen and (min-width: 768px) {
+  nav {
+    width: 15vw !important;
+    transform: none;
+  }
+}

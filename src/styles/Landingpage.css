@@ -1,0 +1,70 @@
+.landingpage-wrapper {
+  background-color: #ffb400;
+  background-image: url(/yellow-woman-bg.png);
+  background-position: -87vh 0;
+  background-repeat: no-repeat;
+  background-size: 211vh;
+  width: 100%;
+  height: 100vh;
+  padding: 0%;
+  margin: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header h1 {
+  color: white;
+  font-size: 13vw;
+}
+
+.humbg {
+  position: fixed;
+  top: 1%;
+  left: 2%;
+  font-size: 5vh;
+  color: white;
+}
+
+.mid {
+  margin-top: 23%;
+}
+
+.btn-box {
+  display: flex;
+  justify-content: center;
+}
+
+.home-link {
+  text-decoration: none;
+}
+
+.landingpage-home-btn {
+  border: none;
+  background-color: #96be0e;
+  border-radius: 50px;
+  padding: 2.8vh 5vw;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 2.5vh;
+  transition: all 1s;
+}
+
+.landingpage-home-btn:hover {
+  background-color: #d4f076;
+}
+
+.landingpage-home-btn:active {
+  background-color: #d4f076;
+}
+
+.soc-down {
+  height: 12vh;
+  width: auto;
+  position: fixed;
+  bottom: 1%;
+  right: 0%;
+}

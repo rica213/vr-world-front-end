@@ -1,0 +1,143 @@
+:root {
+  --clr-green: #6beb21;
+  /* stylelint-disable csstree/validator */
+  --shadow-1: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  /* stylelint-enable csstree/validator */
+}
+
+.section-container {
+  min-height: 95vh;
+  padding: 1rem;
+  display: grid;
+  align-items: center;
+}
+
+.single-studio-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+
+.single-studio-card > .circle-color {
+  margin: auto;
+}
+
+.single-studio-card > .delete-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(128, 128, 128, 0.288);
+  transform: translateY(100%);
+  transition: all 0.3s ease-in-out;
+}
+
+.single-studio-card:hover > .delete-overlay {
+  transform: translateY(0);
+}
+
+.delete-studios-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 0.5fr));
+  gap: 1rem;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.del-studio-btn {
+  font-size: 2rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: red;
+  outline: 3pt solid rgba(128, 128, 128, 0.5);
+  border: none;
+  margin: auto;
+  cursor: pointer;
+}
+
+/* overlay */
+.modal-overlay {
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.233);
+}
+
+.show-modal {
+  display: flex;
+}
+
+/* confimation */
+.confirm-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 67%;
+  height: 16vh;
+  background-color: white;
+  align-items: center;
+  padding: 1rem;
+  border: #e5ffd5 solid 4px;
+}
+
+.confrim-btns-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
+}
+
+.confirm-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  background: transparent;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  color: white;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  box-shadow: var(--shadow-1);
+  letter-spacing: 0.2rem;
+  font-size: 1rem;
+}
+
+.confirm {
+  background-color: red;
+}
+
+.confirm:hover {
+  color: red;
+  background-color: white;
+  outline: 2pt solid red;
+}
+
+.cancel {
+  background-color: var(--clr-green);
+}
+
+.cancel:hover {
+  color: var(--clr-green);
+  background: white;
+  outline: 2pt solid var(--clr-green);
+}

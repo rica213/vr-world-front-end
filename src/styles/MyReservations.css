@@ -1,0 +1,57 @@
+.reservation-title {
+  text-align: center;
+  padding-top: 5vh;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  color: #444141;
+}
+
+.reservation-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  list-style: none;
+  margin-top: 5vh;
+  gap: 1%;
+  padding: 0% 2%;
+}
+
+.reservation-card {
+  display: grid;
+  padding: 10px;
+  text-align: center;
+  min-height: 150px;
+  color: white;
+  align-items: center;
+}
+
+.reservation-card p {
+  color: #000;
+}
+
+.res-description {
+  position: relative;
+  top: 0;
+}
+
+.res-description > * {
+  color: white;
+  opacity: 1;
+  z-index: 2;
+}
+
+.stud-image {
+  width: 100%;
+  border-radius: 2rem;
+  opacity: 2%;
+}
+
+@media (min-width: 600px) {
+  .reservation-list {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+.no-reservation {
+  text-align: center;
+  margin-top: 25vh;
+}
