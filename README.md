@@ -11,6 +11,7 @@
 # 📗 Table of Contents
 
 - [🪐 About the Project](#about-project)
+- [📑 Kanban Board](#kanban-board)
 - [🛠 Built With](#built-with)
   - [Tech Stack](#tech-stack)
 - [💮 Key Features](#key-features)
@@ -36,6 +37,27 @@
 **VR-WORLD** is a cutting-edge platform that connects you with a curated selection of virtual reality studios and experiences.<br> Our mission is to provide a seamless booking process for thrilling VR sessions, putting the power of choice in your hands. <br>
 
 With **VR-WORLD**, you can explore a diverse range of partner studios, each offering unique and captivating virtual reality experiences. <br> From adrenaline-pumping gaming adventures to awe-inspiring educational simulations, our platform showcases a variety of options to suit every interest and preference.
+
+# 📑 Kanban Board <a name="kanban-board"></a>
+
+We are four people team. <br>
+
+👉🏽 Ambrose [@ambrose-kibet](https://github.com/ambrose-kibet) <br>
+👉🏽 Frempong [@frempongdev](https://github.com/frempongdev) <br>
+👉🏽 Larissa [@rica213](https://github.com/rica213) <br>
+👉🏽 Shaaibu [@shaaibu7](https://github.com/shaaibu7) <br>
+
+## 🖇️ Link to [our Kanban setup](https://github.com/users/rica213/projects/8/views/1)
+
+### Below is the screenshot of our initial board. ⬇️ 
+Tasks 1- 8 📸 
+![image](https://github.com/rica213/vr-world/assets/117144028/30d066a6-db03-46d2-a4ac-3903cb25639b)
+
+Tasks 9 - 16 📸 
+![image](https://github.com/rica213/vr-world/assets/117144028/0c4a0bb7-4f0a-4618-bfd3-bdc2c7e42d5d)
+
+Tasks 17 - 23 📸 
+![image](https://github.com/rica213/vr-world/assets/117144028/bb30380a-a09e-4142-9df4-174cff9a081f)
 
 # 🛠 Built With <a name="built-with"></a>
 
