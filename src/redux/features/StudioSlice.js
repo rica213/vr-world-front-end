@@ -8,6 +8,7 @@ const initialState = {
   status: 'idle',
   error: null,
   flagId: null,
+  isLoading: false,
   isModalOpen: false,
   isSuccessful: false,
 };
@@ -23,7 +24,7 @@ export const fetchStudios = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue({ error: error.message });
     }
-  },
+  }
 );
 
 // create a new studio
@@ -39,14 +40,14 @@ export const createStudio = createAsyncThunk(
           headers: {
             authorization: thunkAPI.getState().auth.token,
           },
-        },
+        }
       );
       thunkAPI.dispatch(fetchStudios);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue({ error: error.response.data });
     }
-  },
+  }
 );
 
 // delete an existing studio
@@ -61,14 +62,14 @@ export const deleteStudio = createAsyncThunk(
           headers: {
             authorization: thunkAPI.getState().auth.token,
           },
-        },
+        }
       );
       thunkAPI.dispatch(fetchStudios());
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue({ error: error.message });
     }
-  },
+  }
 );
 
 // fetching studio
@@ -82,7 +83,7 @@ export const fetchStudio = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue({ error: error.message });
     }
-  },
+  }
 );
 
 // studio slice
@@ -100,17 +101,19 @@ const studioSlice = createSlice({
     // fetch all studios
     builder.addCase(fetchStudios.pending, (state) => ({
       ...state,
-      status: 'Loading',
+      isLoading: true,
     }));
     builder.addCase(fetchStudios.fulfilled, (state, action) => ({
       ...state,
       status: 'successful',
       studios: action.payload,
+      isLoading: false,
     }));
     builder.addCase(fetchStudios.rejected, (state, action) => ({
       ...state,
       status: 'failed',
       error: action.error.message,
+      isLoading: false,
     }));
 
     // create a new studio
@@ -166,7 +169,6 @@ const studioSlice = createSlice({
   },
 });
 
-export const {
-  setFlagId, openModal, closeModal, setSuccessful,
-} = studioSlice.actions;
+export const { setFlagId, openModal, closeModal, setSuccessful } =
+  studioSlice.actions;
 export default studioSlice.reducer;
