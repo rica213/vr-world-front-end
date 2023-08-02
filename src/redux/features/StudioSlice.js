@@ -8,6 +8,7 @@ const initialState = {
   status: 'idle',
   error: null,
   flagId: null,
+  isLoading: false,
   isModalOpen: false,
   isSuccessful: false,
 };
@@ -100,17 +101,19 @@ const studioSlice = createSlice({
     // fetch all studios
     builder.addCase(fetchStudios.pending, (state) => ({
       ...state,
-      status: 'Loading',
+      isLoading: true,
     }));
     builder.addCase(fetchStudios.fulfilled, (state, action) => ({
       ...state,
       status: 'successful',
       studios: action.payload,
+      isLoading: false,
     }));
     builder.addCase(fetchStudios.rejected, (state, action) => ({
       ...state,
       status: 'failed',
       error: action.error.message,
+      isLoading: false,
     }));
 
     // create a new studio

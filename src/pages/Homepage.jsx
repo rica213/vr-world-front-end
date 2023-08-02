@@ -3,13 +3,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchStudios } from '../redux/features/StudioSlice';
 import '../styles/hompage.css';
 import Couresel from '../components/Couresel';
+import Loading from '../components/Loading';
 
 const Homepage = () => {
-  const { studios } = useSelector((state) => state.studios);
+  const { studios, isLoading } = useSelector((state) => state.studios);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchStudios());
   }, [dispatch]);
+
+  if (isLoading) {
+    return (
+      <main className="main-container">
+        <Loading />
+      </main>
+    );
+  }
 
   return (
     <main className="main-container">
