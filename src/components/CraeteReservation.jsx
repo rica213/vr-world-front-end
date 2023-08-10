@@ -1,4 +1,4 @@
-const CraeteReservation = () => {
-  return <div>CraeteReservation form</div>;
+const CreateReservation = () => {
+  return <div>CreateReservation form</div>;
 };
-export default CraeteReservation;
+export default CreateReservation;
