@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
-import { fetchStudio } from '../redux/features/StudioSlice';
+import { useParams } from 'react-router-dom';
+import { fetchStudio, openModal } from '../redux/features/StudioSlice';
 import MultipliedStars from '../components/Multipliedstars';
 import '../styles/Studiodetailspage.css';
+import CreateReservation from '../components/CraeteReservation';
 
 const Studiodetails = () => {
   const studio = useSelector((state) => state.studios.studio);
@@ -56,14 +57,16 @@ const Studiodetails = () => {
             <div className="loader" />
           </div>
 
-          <Link to={`/reservations/new/${studio.id}`}>
-            <button type="button" className="reserve-btn">
-              Reserve
-              {' '}
-            </button>
-          </Link>
+          <button
+            type="button"
+            className="reserve-btn btn"
+            onClick={() => dispatch(openModal())}
+          >
+            Reserve
+          </button>
         </div>
       </div>
+      <CreateReservation studioId={id} />
     </>
   );
 };

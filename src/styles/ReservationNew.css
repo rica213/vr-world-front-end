@@ -1,5 +1,5 @@
 .page-wrapper {
-  text-align: center;
+  text-align: justify;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,10 +11,14 @@
   background-size: 128vh;
   background-position: -39vh 4vh;
   height: 100vh;
+  position: absolute;
+  top: 0rem;
+  left: 0 rem;
+  width: 100vw;
+  max-width: 300px;
 }
 
 h2 {
-  font-size: 4vh;
   color: white;
   padding: 2vh;
   margin: 0%;
@@ -49,16 +53,4 @@ p {
 .submit-bttn {
   background-color: white;
   color: #96be0e;
-}
-
-@media screen and (min-width: 768px) {
-  .description {
-    width: 85vw;
-  }
-}
-
-@media (min-width: 1200px) {
-  .description {
-    width: 65vw;
-  }
 }
