@@ -48,7 +48,7 @@ const CreateReservation = ({ studioId }) => {
       aria-modal="true"
       onClick={handleModal}
     >
-      <div className="page-wrapper">
+      <div className="page-wrapperX">
         <h2>BOOK AN EXPERIENCE</h2>
         <div className="description">
           <p>

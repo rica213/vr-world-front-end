@@ -1,4 +1,19 @@
 .page-wrapper {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  background-color: #96be0e;
+  background-image: url(/green-man-bg.png);
+  background-repeat: no-repeat;
+  background-size: 128vh;
+  background-position: -39vh 4vh;
+  height: 100vh;
+}
+
+.page-wrapperX {
   text-align: justify;
   display: flex;
   flex-direction: column;
@@ -12,8 +27,8 @@
   background-position: -39vh 4vh;
   height: 100vh;
   position: absolute;
-  top: 0rem;
-  left: 0 rem;
+  top: 0;
+  left: 0;
   width: 100vw;
   max-width: 300px;
 }
