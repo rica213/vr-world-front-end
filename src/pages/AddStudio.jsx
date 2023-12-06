@@ -42,7 +42,7 @@ const AddStudio = () => {
       navigate('/home');
       dispatch(setSuccessful());
     }
-  }, [isSuccessful, navigate]);
+  }, [isSuccessful, dispatch, navigate]);
 
   return (
     <div className="page-wrapper">

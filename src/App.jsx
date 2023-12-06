@@ -5,7 +5,7 @@ import Homepage from './pages/Homepage';
 import NoMatch from './pages/NoMatch';
 import './styles/App.css';
 import Landingpage from './pages/Landingpage';
-import ReservationNew from './pages/ReservationNew';
+
 import Navigation from './components/Navigation';
 import { toggleNav } from './redux/features/NavbarSlice';
 import Authentication from './pages/Authentication';
@@ -45,11 +45,6 @@ const App = () => {
             </ProtectedPages>
           )}
         >
-          <Route
-            exact
-            path="/reservations/new/:studioId"
-            element={<ReservationNew />}
-          />
           <Route
             exact
             path="/reservations/my-reservations"
